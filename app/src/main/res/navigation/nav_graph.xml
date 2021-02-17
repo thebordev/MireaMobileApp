@@ -1,0 +1,33 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ic_shedule">
+
+    <fragment
+        android:id="@+id/ic_map"
+        android:name="com.example.mireaapp.Frgaments.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" />
+    <fragment
+        android:id="@+id/ic_deadline"
+        android:name="com.example.mireaapp.Frgaments.NotesFragment"
+        android:label="fragment_note"
+        tools:layout="@layout/fragment_notes" />
+    <fragment
+        android:id="@+id/ic_shedule"
+        android:name="com.example.mireaapp.Frgaments.SheduleFragment"
+        android:label="fragment_shedule"
+        tools:layout="@layout/fragment_shedule" />
+    <fragment
+        android:id="@+id/ic_explorer"
+        android:name="com.example.mireaapp.Frgaments.NewsListFragment"
+        android:label="fragment_news_details"
+        tools:layout="@layout/fragment_news_details_fragmenet" />
+    <fragment
+        android:id="@+id/ic_account"
+        android:name="com.example.mireaapp.Frgaments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>
