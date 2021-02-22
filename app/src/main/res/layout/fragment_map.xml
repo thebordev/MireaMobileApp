@@ -5,10 +5,174 @@
     android:layout_height="match_parent"
     tools:context=".Frgaments.MapFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/corners_hat_shedule"
+        android:backgroundTint="@color/color_bg_notes"
+        >
+
+        <LinearLayout
+            android:id="@+id/hatters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+            android:weightSum="3">
+
+            <ImageButton
+                android:id="@+id/btn_more_search_map"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_dehaze_24"
+                android:background="@android:color/transparent"
+                android:tint="@color/icon_false"/>
+
+            <EditText
+                android:id="@+id/search_line_map"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/corners_hat_shedule"
+                android:backgroundTint="#EAEAEA"
+                android:layout_margin="8dp"
+                android:layout_weight="3"
+                android:hint="Поиск"
+
+                android:paddingLeft="10dp"/>
+
+            <ImageButton
+                android:id="@+id/btn_search_map"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_search_24"
+                android:background="@android:color/transparent"
+                android:tint="@color/icon_false"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_below="@+id/hatters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_map"
+                android:layout_width="match_parent"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="left|bottom"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_marginLeft="5dp"
+        android:background="@drawable/corners_hat_shedule"
+        android:backgroundTint="@color/color_bg_notes"
+        android:weightSum="5">
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:background="@drawable/corners_hat_shedule"
+            android:backgroundTint="@android:color/black"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:orientation="vertical"
+            android:layout_weight="1">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="20sp"
+                android:layout_gravity="center"
+                android:padding="10dp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_outline_map_24"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
 
 </FrameLayout>

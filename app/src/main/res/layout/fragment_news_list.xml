@@ -1,13 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/news_list_swipe"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Frgaments.NewsListFragment">
+    android:orientation="vertical"
+    android:background="@color/color_bg_notes"
+    tools:context=".Frgaments.News.NewsListFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NEWS"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/_20sdp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:padding="@dimen/_10sdp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_bg_news"
+        android:columnCount="2"
+        android:layout_margin="@dimen/_10sdp"
+        android:paddingTop="5dp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:rowCount="2">
+
+        <EditText
+            android:id="@+id/editText_news"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Search"
+            android:textColorHint="@color/icon_false"
+            android:textColor="@color/icon_false"
+            android:padding="@dimen/_10sdp"
+            android:background="@drawable/black_bg_news"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_row="0"
+            android:inputType="textPersonName"
+            />
+
+        <Button
+            android:id="@+id/buttons_news"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:background="@drawable/black_bg_news"
+            android:drawableRight="@drawable/ic_baseline_search_24"
+            android:drawableTint="@color/icon_false"
+            android:paddingRight="@dimen/_20sdp"
+            android:layout_row="0"
+            android:layout_height="wrap_content"
+            android:text="Buttons"/>
+
+
+
+    </GridLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_list_news"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:id="@+id/recyclerView_news"/>
 
-</FrameLayout>
+</LinearLayout>

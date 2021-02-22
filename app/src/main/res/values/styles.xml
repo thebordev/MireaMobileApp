@@ -23,4 +23,12 @@
 
 
     </style>
+
+    <style name="ThemeOverlay.search" parent="AppTheme">
+        <!-- Text color -->
+        <item name="android:editTextColor">#ffffff</item>
+        <!-- Hint text color -->
+        <item name="android:textColorHint">#cbcbcb</item>
+
+    </style>
 </resources>

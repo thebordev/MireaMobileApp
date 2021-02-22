@@ -2,6 +2,7 @@ package com.example.mireaapp.Util;
 
 import android.widget.ImageView;
 
+import androidx.core.content.ContextCompat;
 import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
@@ -37,6 +38,15 @@ public class BindingAdapters {
             default: view.setBackgroundColor(view.getContext().getResources().getColor(R.color.red));
         }
 
+    }
+
+    @BindingAdapter("set_checked")
+    public static void toggleFav(ImageView view, boolean isFav) {
+        if (isFav) {
+            view.setColorFilter(ContextCompat.getColor(view.getContext(), R.color.red));
+        } else {
+            view.setColorFilter(ContextCompat.getColor(view.getContext(), R.color.dark_icon_tint_color));
+        }
     }
 
 }

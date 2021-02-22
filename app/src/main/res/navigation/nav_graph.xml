@@ -11,7 +11,7 @@
         tools:layout="@layout/fragment_map" />
     <fragment
         android:id="@+id/ic_deadline"
-        android:name="com.example.mireaapp.Frgaments.NotesFragment"
+        android:name="com.example.mireaapp.Frgaments.Notes.NotesFragment"
         android:label="fragment_note"
         tools:layout="@layout/fragment_notes" />
     <fragment
@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_shedule" />
     <fragment
         android:id="@+id/ic_explorer"
-        android:name="com.example.mireaapp.Frgaments.NewsListFragment"
+        android:name="com.example.mireaapp.Frgaments.News.NewsListFragment"
         android:label="fragment_news_details"
         tools:layout="@layout/fragment_news_details_fragmenet" />
     <fragment
