@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ForumActivity"
+            android:label="@string/title_activity_forum"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".IntroActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden">
@@ -28,8 +32,7 @@
         <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden">
-        </activity>
+            android:windowSoftInputMode="stateHidden" />
 
         <meta-data
             android:name="preloaded_fonts"

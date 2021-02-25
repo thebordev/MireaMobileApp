@@ -301,18 +301,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/notes_home">
+            android:layout_below="@id/notes_home"
+            tools:visibility="visible">
 
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+
                 <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_all_schedul_items"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    />
-
-
+                    android:layout_height="wrap_content"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </ScrollView>
 
 
