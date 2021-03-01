@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,11 +18,17 @@ import android.view.ViewGroup;
 import com.example.mireaapp.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class NotesFragment extends Fragment {
 
     public static final int REQUEST_CODE_ADD_NOTE = 1;
+    private static final int RESULT_OK = -1;
+
+    private RecyclerView notesRecyclerView;
+    private List<Note> noteList;
+    private NotesAdapter notesAdapter;
 
     public NotesFragment() {
 
@@ -39,10 +48,23 @@ public class NotesFragment extends Fragment {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CreateNote.class);
-                startActivity(intent);
+                startActivityForResult(
+                        new Intent(getContext(), CreateNote.class),
+                        REQUEST_CODE_ADD_NOTE
+                );
             }
         });
+
+        notesRecyclerView = view.findViewById(R.id.recycler_view_deadline);
+        notesRecyclerView.setLayoutManager(
+                new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+        );
+
+        noteList = new ArrayList<>();
+        notesAdapter = new NotesAdapter(noteList);
+        notesRecyclerView.setAdapter(notesAdapter);
+
+        getNotes();
 
         
         // Inflate the layout for this fragment
@@ -64,9 +86,25 @@ public class NotesFragment extends Fragment {
             @Override
             protected void onPostExecute(List<Note> notes) {
                 super.onPostExecute(notes);
-                Log.d("MY_NOTES", notes.toString());
+                if (noteList.size() == 0) {
+                    noteList.addAll(notes);
+                    notesAdapter.notifyDataSetChanged();
+                } else {
+                    noteList.add(0, notes.get(0));
+                    notesAdapter.notifyItemInserted(0);
+                }
+                notesRecyclerView.smoothScrollToPosition(0);
             }
+
         }
         new GetNotesTask().execute();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CODE_ADD_NOTE && resultCode == RESULT_OK) {
+            getNotes();
+        }
     }
 }

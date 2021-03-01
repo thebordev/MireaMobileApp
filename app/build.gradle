@@ -55,8 +55,8 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.3"
 
     // Room
-    implementation "androidx.room:room-runtime:2.2.6"
-    implementation "android.arch.persistence.room:compiler:2.2.6"
+    implementation "androidx.room:room-runtime:2.2.5"
+    annotationProcessor "androidx.room:room-compiler:2.2.5"
 
     // livedate
     implementation "androidx.lifecycle:lifecycle-livedata:1.2.0"

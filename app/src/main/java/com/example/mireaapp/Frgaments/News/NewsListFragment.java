@@ -40,6 +40,7 @@ public class NewsListFragment extends Fragment {
 
     public NewsListFragment() {
         // Required empty public constructor
+
     }
 
     @Override
