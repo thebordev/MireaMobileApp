@@ -112,6 +112,66 @@
                 app:layout_constraintTop_toTopOf="@id/inputNoteSubTitle_notes"
                 android:layout_marginLeft="@dimen/_12sdp" />
 
+            <ImageView
+                android:id="@+id/imageNote_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/inputNoteSubTitle_notes"/>
+
+            <ImageView
+                android:id="@+id/imageRemoveImage_note"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/bg_delete"
+                android:contentDescription="@string/app_name"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/imageNote_note"
+                app:layout_constraintTop_toTopOf="@id/imageNote_note"
+                app:tint="@android:color/white"
+                android:layout_marginRight="@dimen/_10sdp" />
+
+            <LinearLayout
+                android:id="@+id/layoutWebUrl_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@+id/imageNote_note">
+
+                <TextView
+                    android:id="@+id/textWebURL_note"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:autoLink="web"
+                    android:fontFamily="@font/ubuntu"
+                    android:includeFontPadding="false"
+                    android:textSize="@dimen/_13sdp"/>
+
+                <ImageView
+                    android:id="@+id/imageRemoveWebUrl_note"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_baseline_delete_24"
+                    app:tint="@color/color_cat_5_explorer" />
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/inputNote_notes"
                 android:layout_width="match_parent"
@@ -132,7 +192,7 @@
                 android:textColorHint="@color/icon_false"
                 android:textSize="@dimen/_13sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/inputNoteSubTitle_notes"/>
+                app:layout_constraintTop_toBottomOf="@+id/layoutWebUrl_note"/>
 
 
 
