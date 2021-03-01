@@ -16,8 +16,23 @@
     <!--    // dark theme colors-->
     <color name="dark_primary_color">#141414</color>
     <color name="dark_primary_dark_color">#141414</color>
+
+    <!-- dark schedule colors-->
+    <color name="dark_bg_schedule_item">#494949</color>
+    <color name="dark_bg_color_2">#1A1A1A</color>
+    <color name="dark_text_color_primary">#8BB5E7</color>
+    <color name="dark_text_color">#D9D9D9</color>
     <color name="dark_bg_color">#141414</color>
-    <color name="dark_text_color">#fafafa</color>
+    <color name="dark_gray">#737373</color>
+    <color name="dark_gray_darker">#585858</color>
+    <color name="dark_blue">#5271FF</color>
+    <color name="dark_light_blue">#8BB5E7</color>
+
+    <color name="dark_schedule_left_bar_practice">#5271FF</color>
+    <color name="dark_schedule_left_bar_lab">#914EEB</color>
+    <color name="dark_schedule_left_bar_lecture">#A1E3E2</color>
+
+
     <color name="dark_icon_tint_color">#A2A2A2</color>
     <color name="dark_bg_nav_bottom">#272727</color>
 
