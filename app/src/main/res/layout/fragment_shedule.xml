@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frgaments.SheduleFragment"
-    android:background="@color/color_bg_notes">
+    android:background="@color/dark_bg_color_2">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -41,15 +41,16 @@
                     />
 
                 <ImageButton
+                    android:id="@+id/schedule_settings_button"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_baseline_settings_24"
-                    android:tint="@color/icon_false"
                     android:background="@android:color/transparent"
-                    android:layout_alignParentRight="true" />
+                    android:src="@drawable/ic_baseline_settings_24"
+                    android:tint="@color/icon_false" />
 
             </RelativeLayout>
 
@@ -79,17 +80,20 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_schedule_current_week"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30 неделя (четная)"
-                        android:textStyle="bold"
                         android:textColor="@android:color/darker_gray"
-                        android:textSize="18sp"/>
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_schedule_current_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Понедельник, 9 января"
-                        android:textColor="@android:color/darker_gray"/>
+                        android:textColor="@android:color/darker_gray" />
                 </LinearLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -97,6 +101,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
+                        android:id="@+id/schedule_calendar_button"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_alignParentRight="true"
@@ -114,10 +119,11 @@
                 android:layout_margin="10dp">
 
                 <LinearLayout
+                    android:id="@+id/ll_date_0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -125,25 +131,29 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="ПН"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_date_0"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
                         android:text="11"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_date_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -151,25 +161,29 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="ВТ"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_date_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
                         android:text="12"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_date_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -177,25 +191,29 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="СР"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_date_2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
                         android:text="13"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_date_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -203,25 +221,29 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="ЧТ"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_date_3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
                         android:text="14"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_date_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -229,25 +251,29 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
                         android:text="ПТ"
-                        android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_date_4"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
                         android:text="15"
-                        android:textStyle="bold"
-                        android:gravity="center"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_date_5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -255,24 +281,28 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="СБ"
                         android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:text="СБ"
+                        android:textStyle="bold" />
+
                     <TextView
+                        android:id="@+id/tv_date_5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="16"
-                        android:textStyle="bold"
-                        android:gravity="center"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="16"
+                        android:textStyle="bold" />
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/ll_date_6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
                     android:background="@drawable/corners_hat_shedule"
                     android:backgroundTint="@color/icon_false"
                     android:orientation="vertical">
@@ -280,18 +310,19 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="ВС"
                         android:layout_marginTop="5dp"
-                        android:textStyle="bold"
-                        android:gravity="center"/>
+                        android:gravity="center"
+                        android:text="ВС"
+                        android:textStyle="bold" />
+
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="17"
-                        android:textStyle="bold"
-                        android:gravity="center"
                         android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_marginBottom="5dp"
+                        android:gravity="center"
+                        android:text="17"
+                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -321,5 +352,4 @@
 
 
     </RelativeLayout>
-
 </FrameLayout>
