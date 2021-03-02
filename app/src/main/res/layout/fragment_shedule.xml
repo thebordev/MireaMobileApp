@@ -36,6 +36,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="Расписание"
+                    android:fontFamily="@font/ubuntu_medium"
                     android:textColor="@color/icon_false"
                     android:textSize="17sp"
                     />
@@ -115,7 +116,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:weightSum="7"
+                android:weightSum="6"
                 android:layout_margin="10dp">
 
                 <LinearLayout
@@ -297,34 +298,6 @@
                         android:textStyle="bold" />
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/ll_date_6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_false"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="ВС"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        android:text="17"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
             </LinearLayout>
 
         </LinearLayout>
@@ -344,6 +317,7 @@
                     android:id="@+id/rv_all_schedul_items"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    tools:listitem="@layout/layout_schedule_item"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
             </ScrollView>
 

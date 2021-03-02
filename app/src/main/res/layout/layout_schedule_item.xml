@@ -1,148 +1,198 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/time_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="10dp">
-
-        <TextView
-            android:id="@+id/tv_schedule_item_time_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="gravity"
-            android:layout_gravity="right"
-            android:text="9:00"
-            android:textSize="13sp"
-            android:textColor="@color/dark_text_color_primary"/>
-
-        <TextView
-            android:id="@+id/tv_schedule_item_time_end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textAlignment="gravity"
-            android:layout_gravity="right"
-            android:text="10:30"
-            android:textSize="13sp"
-            android:textColor="@color/dark_text_color"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="10dp"
-        android:layout_height="10dp"
-        android:layout_marginLeft="6dp"
-        android:background="@drawable/schedule_circle"
-        android:orientation="vertical"></LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/vertical_line"
-        android:layout_width="2dp"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="-6dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="18dp"
-
-        android:background="@color/dark_gray_darker"
-        android:orientation="vertical">
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_height="0dp">
-
-        <FrameLayout
-            android:id="@+id/circle_shape"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/schedule_circle">
-
-        </FrameLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/schedule_item_card"
-        android:background="@drawable/schedule_item"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="15dp"
-        android:layout_marginRight="120dp"
-        android:paddingLeft="0dp"
-        android:paddingRight="5dp"
-        app:strokeWidth="2dp"
-        app:strokeColor="@color/ColorDefaultDeadline"
-        >
+        android:background="@null"
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-            <FrameLayout
-                android:id="@+id/fl_schedule_item_left_bar"
-                android:layout_width="29dp"
+            <LinearLayout
+                android:id="@+id/time_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp">
+
+                <TextView
+                    android:id="@+id/tv_schedule_item_time_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="gravity"
+                    android:layout_gravity="right"
+                    android:text="9:00"
+                    android:textSize="13sp"
+                    android:textColor="@color/dark_text_color_primary"/>
+
+                <TextView
+                    android:id="@+id/tv_schedule_item_time_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="gravity"
+                    android:layout_gravity="right"
+                    android:text="10:30"
+                    android:textSize="13sp"
+                    android:textColor="@color/dark_text_color"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="6dp"
+                android:background="@drawable/schedule_circle"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/vertical_line"
+                android:layout_width="2dp"
                 android:layout_height="match_parent"
-                android:background="@drawable/schedule_item_left_bar"></FrameLayout>
+                android:layout_marginLeft="-6dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="18dp"
+                android:background="@color/dark_gray_darker"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_height="0dp">
+
+                <FrameLayout
+                    android:id="@+id/circle_shape"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/schedule_circle">
+
+                </FrameLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/schedule_item_card"
+            android:background="@drawable/bg_dialog"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="120dp"
+            app:strokeWidth="2dp"
+            app:strokeColor="@color/ColorDefaultDeadline"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_schedule_item_cabinet"
+                <FrameLayout
+                    android:id="@+id/fl_schedule_item_left_bar"
+                    android:layout_width="10dp"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/icon_true"
+                    android:background="@drawable/schedule_item_left_bar"/>
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10sp"
-                    android:layout_marginTop="5sp"
-                    android:layout_marginRight="10sp"
-                    android:textSize="14sp"
-                    android:ellipsize="none"
-                    android:gravity="end"
-                    android:fontFamily="@font/ubuntu_bold"
-                    android:text="А-5"
-                    android:textColor="@color/dark_text_color" />
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/tv_schedule_item_type"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10sp"
-                    android:layout_marginRight="10sp"
-                    android:textSize="14sp"
-                    android:gravity="end"
-                    android:fontFamily="@font/ubuntu_bold"
-                    android:text="Практика"
-                    android:textColor="@color/dark_text_color" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/tv_schedule_item_title"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10sp"
-                    android:layout_marginTop="20sp"
-                    android:layout_marginRight="10sp"
-                    android:layout_marginBottom="10sp"
-                    android:fontFamily="@font/ubuntu_bold"
-                    android:textSize="16sp"
-                    android:freezesText="false"
-                    android:gravity="left"
-                    android:text="Основы муниципального управления"
-                    android:textColor="@color/dark_text_color" />
+                        <TextView
+                            android:id="@+id/tv_schedule_item_type"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Лекция"
+                            android:textColor="@color/icon_false"
+                            android:textSize="@dimen/_10sdp"
+                            android:fontFamily="@font/ubuntu"/>
+
+                        <TextView
+                            android:id="@+id/tv_schedule_item_cabinet"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="A123"
+                            android:paddingRight="@dimen/_5sdp"
+                            android:textColor="@color/icon_false"
+                            android:gravity="right"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:paddingRight="@dimen/_5sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_schedule_item_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Проектный семинар: Деловые коммуникации и эмоциональный интеллект (рус)"
+                            android:textColor="@android:color/white"
+                            android:fontFamily="@font/ubuntu_medium"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_dialog"
+                        android:backgroundTint="@color/icon_true">
+
+                        <TextView
+                            android:id="@+id/shedule_note_item"
+                            android:layout_width="match_parent"
+                            android:padding="@dimen/_5sdp"
+                            android:layout_height="wrap_content"
+                            android:text="Список карточек и карточки товаров — очень распространённый интерфейсны паттерн. Он применяется в интернет-магазинах, лендингах и даже простых текстовых сайтах. "
+                            android:textColor="@color/icon_false"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/_5sdp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="online"
+                            android:textColor="@color/icon_false"
+                            android:gravity="center"
+                            android:paddingBottom="@dimen/_2sdp"/>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
+        </LinearLayout>
     </LinearLayout>
 
-</LinearLayout>
+</androidx.cardview.widget.CardView>
