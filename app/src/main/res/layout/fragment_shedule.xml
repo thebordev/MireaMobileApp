@@ -15,45 +15,52 @@
             android:layout_width="match_parent"
             android:layout_height="60dp">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:weightSum="3">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/profile"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
-                    app:civ_border_width="1dp"
-                    app:civ_border_color="@color/icon_false"
-                    />
+                android:paddingTop="@dimen/_20sdp"
+                android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/textMyShedule"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="Расписание"
-                    android:fontFamily="@font/ubuntu_medium"
-                    android:textColor="@color/icon_false"
-                    android:textSize="17sp"
-                    />
+                    android:layout_marginStart="@dimen/_12sdp"
+                    android:layout_marginEnd="@dimen/_12sdp"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:includeFontPadding="false"
+                    android:text="Мое Расписание"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/_20sdp"
+                    app:layout_constraintTop_toTopOf="parent"/>
 
-                <ImageButton
-                    android:id="@+id/schedule_settings_button"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/ic_baseline_settings_24"
-                    android:tint="@color/icon_false" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_marginRight="@dimen/_5sdp">
 
-            </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/ic_baseline_settings_24"
+                        app:tint="@color/icon_false"
+                        android:layout_marginRight="@dimen/_10sdp"/>
+                    <ImageView
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
+                        android:src="@drawable/ic_baseline_notifications_24"
+                        app:tint="@color/icon_false" />
+
+
+                </LinearLayout>
+
+                
+                
+
+            </LinearLayout>
 
         </RelativeLayout>
         <LinearLayout
