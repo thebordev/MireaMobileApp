@@ -5,6 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class CalendarManager {
 
@@ -14,14 +15,15 @@ public class CalendarManager {
         Calendar c = Calendar.getInstance();
         Date currentDate = new Date();
         c.setTime(currentDate);
-        c.setFirstDayOfWeek(Calendar.MONDAY);
-        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+        //c.getInstance().setFirstDayOfWeek(Calendar.MONDAY);
+        int dayOfWeek = 7 - (8 - c.get(Calendar.DAY_OF_WEEK))%7 - 1;
 
         return dayOfWeek;
     }
 
     public static String getCurrentTextDayOfWeek(){
         int dayOfWeek = CalendarManager.getCurrentDayOfWeek();
+
         String day = "Понедельник";
         switch (dayOfWeek){
             case 0:
@@ -67,7 +69,7 @@ public class CalendarManager {
         }
 
         long milliseconds = currentDate.getTime() - startDate.getTime();
-        int week = (int) Math.ceil(((int) (milliseconds / (24 * 60 * 60 * 1000)))/7);
+        int week = (int) Math.ceil(((int) (milliseconds / (24 * 60 * 60 * 1000)))/7) + 1;
         return week;
     }
 
