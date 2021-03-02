@@ -16,7 +16,7 @@
         tools:layout="@layout/fragment_notes" />
     <fragment
         android:id="@+id/ic_shedule"
-        android:name="com.example.mireaapp.Frgaments.SheduleFragment"
+        android:name="com.example.mireaapp.Frgaments.Schedule.SheduleFragment"
         android:label="fragment_shedule"
         tools:layout="@layout/fragment_shedule" />
     <fragment

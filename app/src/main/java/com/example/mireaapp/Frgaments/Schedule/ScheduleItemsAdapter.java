@@ -1,9 +1,8 @@
-package com.example.mireaapp.adapters;
+package com.example.mireaapp.Frgaments.Schedule;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mireaapp.R;
-import com.example.mireaapp.ScheduleItem;
 
 import java.util.List;
 

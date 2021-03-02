@@ -1,6 +1,5 @@
-package com.example.mireaapp.Frgaments;
+package com.example.mireaapp.Frgaments.Schedule;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
@@ -16,12 +15,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.example.mireaapp.R;
-import com.example.mireaapp.ScheduleItem;
 import com.example.mireaapp.Util.CalendarManager;
-import com.example.mireaapp.adapters.ScheduleItemsAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,8 +41,10 @@ import okhttp3.Response;
 public class SheduleFragment extends Fragment {
     //Создаем список вьюх которые будут создаваться
     private RecyclerView rvAllScheduleItems;
+
     private ScheduleItemsAdapter itemsAdapter;
     private ArrayList<ScheduleItem> scheduleItems;
+    private ArrayList<LinearLayout> dayButtons;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -116,10 +115,38 @@ public class SheduleFragment extends Fragment {
 
     }
 
+    void setActiveDayButton(int dayOfWeek){
+        //
+    }
+
+    void initializeDayButtons(View currentView){
+        dayButtons = new ArrayList<LinearLayout>();
+
+        dayButtons.add(currentView.findViewById(R.id.ll_date_0));
+        dayButtons.add(currentView.findViewById(R.id.ll_date_1));
+        dayButtons.add(currentView.findViewById(R.id.ll_date_2));
+        dayButtons.add(currentView.findViewById(R.id.ll_date_3));
+        dayButtons.add(currentView.findViewById(R.id.ll_date_4));
+        dayButtons.add(currentView.findViewById(R.id.ll_date_5));
+    }
 
     void initializeScheduleData(View currentView, int week, int dayOfWeek){
         Request request = new Request.Builder().url("http://10.0.2.2:5000/schedule/all/ИКБО-25-20").build();
+
+        initializeDayButtons(currentView);
+        setActiveDayButton(dayOfWeek);
+
         scheduleItems = new ArrayList<ScheduleItem>();
+
+        TextView weekTextView = currentView.findViewById(R.id.tv_schedule_current_week);
+        String even;
+        if (week % 2 == 0)
+            even = "чётная";
+        else
+            even = "нечётная";
+
+        String weekText = String.valueOf(week) + " неделя (" + even + ")";
+        weekTextView.setText(weekText);
 
         new OkHttpClient().newCall(request).enqueue(new Callback() {
             @Override

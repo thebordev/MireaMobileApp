@@ -1,4 +1,4 @@
-package com.example.mireaapp;
+package com.example.mireaapp.Frgaments.Schedule;
 
 public class ScheduleItem {
     private String title;
