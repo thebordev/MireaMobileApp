@@ -131,7 +131,7 @@ public class SheduleFragment extends Fragment {
     }
 
     void initializeScheduleData(View currentView, int week, int dayOfWeek){
-        Request request = new Request.Builder().url("http://10.0.2.2:5000/schedule/all/ИКБО-25-20").build();
+        Request request = new Request.Builder().url("https://mirea.ninja:500/schedule/all/ИКБО-25-20").build();
 
         initializeDayButtons(currentView);
         setActiveDayButton(dayOfWeek);
