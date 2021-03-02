@@ -1,6 +1,8 @@
 package com.example.mireaapp.Frgaments.Schedule;
 
 import android.app.AlertDialog;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.Constraints;
@@ -22,6 +24,7 @@ import com.example.mireaapp.Util.CalendarManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -45,6 +48,9 @@ public class SheduleFragment extends Fragment {
     private ScheduleItemsAdapter itemsAdapter;
     private ArrayList<ScheduleItem> scheduleItems;
     private ArrayList<LinearLayout> dayButtons;
+
+    private int selectedWeek = 0;
+    private int selectedDayOfWeek = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,8 +121,17 @@ public class SheduleFragment extends Fragment {
 
     }
 
-    void setActiveDayButton(int dayOfWeek){
-        //
+    void setSelectedDayButton(View view, int dayOfWeek){
+        if (view.getTag() == null){
+            for (int i = 0; i < 6; i++) {
+                if (i == dayOfWeek) {
+                    view.findViewWithTag(dayOfWeek).getBackground().setColorFilter(Color.parseColor("#9a9898"), PorterDuff.Mode.SRC_ATOP);
+                } else {
+                    view.findViewWithTag(i).getBackground().setColorFilter(Color.parseColor("#cbcbcb"), PorterDuff.Mode.SRC_ATOP);
+                }
+            }
+
+        }
     }
 
     void initializeDayButtons(View currentView){
@@ -128,17 +143,33 @@ public class SheduleFragment extends Fragment {
         dayButtons.add(currentView.findViewById(R.id.ll_date_3));
         dayButtons.add(currentView.findViewById(R.id.ll_date_4));
         dayButtons.add(currentView.findViewById(R.id.ll_date_5));
+
+
+        for(int i = 0; i < 6; i++){
+            dayButtons.get(i).setTag(i);
+            dayButtons.get(i).setOnClickListener(new View.OnClickListener() {
+                public void onClick(View view) {
+                    setSelectedDayButton(currentView, (int) view.getTag());
+                    initializeScheduleData(currentView, selectedWeek, (int) view.getTag());
+                }
+            });
+        }
     }
 
     void initializeScheduleData(View currentView, int week, int dayOfWeek){
         Request request = new Request.Builder().url("https://mirea.ninja:500/schedule/all/ИКБО-25-20").build();
 
-        initializeDayButtons(currentView);
-        setActiveDayButton(dayOfWeek);
+        this.selectedWeek = week;
+        this.selectedDayOfWeek = dayOfWeek;
 
-        scheduleItems = new ArrayList<ScheduleItem>();
+        initializeDayButtons(currentView);
+        setSelectedDayButton(currentView, dayOfWeek);
+
+        this.scheduleItems = new ArrayList<ScheduleItem>();
 
         TextView weekTextView = currentView.findViewById(R.id.tv_schedule_current_week);
+        TextView selectedDateTextView = currentView.findViewById(R.id.tv_schedule_current_date);
+
         String even;
         if (week % 2 == 0)
             even = "чётная";
@@ -147,6 +178,7 @@ public class SheduleFragment extends Fragment {
 
         String weekText = String.valueOf(week) + " неделя (" + even + ")";
         weekTextView.setText(weekText);
+        selectedDateTextView.setText(CalendarManager.getCurrentTextDayOfWeek());
 
         new OkHttpClient().newCall(request).enqueue(new Callback() {
             @Override
