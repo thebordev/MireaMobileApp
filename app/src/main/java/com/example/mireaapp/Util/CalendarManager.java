@@ -70,4 +70,12 @@ public class CalendarManager {
         int week = (int) Math.ceil(((int) (milliseconds / (24 * 60 * 60 * 1000)))/7);
         return week;
     }
+
+    public static String getCurrentMonthString(){
+        Date currentDate = new Date();
+        Calendar calendar = Calendar.getInstance();
+        String[] monthNames = { "января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря" };
+        String month = monthNames[calendar.get(Calendar.MONTH)];
+        return month;
+    }
 }
