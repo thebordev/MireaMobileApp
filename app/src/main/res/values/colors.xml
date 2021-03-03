@@ -90,4 +90,8 @@
     <color name="ColorOrangeDeadline">#ff7746</color>
     <color name="ColorBlackDeadline">#202734</color>
 
+    <!--Colors of book-->
+    <color name="ligh_medium_gray">#f3f3f3</color>
+    <color name="fav_icon_tint">#CAC7C7</color>
+
 </resources>

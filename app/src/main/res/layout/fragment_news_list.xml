@@ -1,71 +1,251 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/news_list_swipe"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/color_bg_notes"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_bg_color_2"
     tools:context=".Frgaments.News.NewsListFragment">
 
-    <TextView
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="NEWS"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/_20sdp"
-        android:fontFamily="@font/ubuntu_bold"
-        android:padding="@dimen/_10sdp"
-        android:textAlignment="center"
-        android:gravity="center_horizontal" />
+        android:layout_height="match_parent">
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/black_bg_news"
-        android:columnCount="2"
-        android:layout_margin="@dimen/_10sdp"
-        android:paddingTop="5dp"
-        android:paddingBottom="@dimen/_5sdp"
-        android:rowCount="2">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText_news"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Search"
-            android:textColorHint="@color/icon_false"
-            android:textColor="@color/icon_false"
-            android:padding="@dimen/_10sdp"
-            android:background="@drawable/black_bg_news"
-            android:layout_column="0"
-            android:layout_columnWeight="1"
-            android:layout_row="0"
-            android:inputType="textPersonName"
-            />
+            <LinearLayout
+                android:id="@+id/hat_home"
+                android:layout_width="match_parent"
+                android:layout_height="60dp">
 
-        <Button
-            android:id="@+id/buttons_news"
-            android:layout_width="wrap_content"
-            android:layout_column="1"
-            android:background="@drawable/black_bg_news"
-            android:drawableRight="@drawable/ic_baseline_search_24"
-            android:drawableTint="@color/icon_false"
-            android:paddingRight="@dimen/_20sdp"
-            android:layout_row="0"
-            android:layout_height="wrap_content"
-            android:text="Buttons"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/_20sdp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/textMyExplorer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:includeFontPadding="false"
+                        android:text="Интересное"
+                        android:textColor="@android:color/white"
+                        android:textSize="@dimen/_20sdp"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="@dimen/_16sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_16sdp">
+
+                    <com.smarteist.autoimageslider.SliderView
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:sliderIndicatorSelectedColor="@color/icon_true"
+                        app:sliderIndicatorUnselectedColor="@color/icon_false"
+                        android:id="@+id/imageSlider_explorer"/>
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_dialog"
+                android:backgroundTint="#6F3D3D3D"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginRight="@dimen/_10sdp"
+                android:weightSum="4"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/bookItem"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/books_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Книги"
+                        android:singleLine="true"
+                        android:autoSizeTextType="uniform"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_dialog"
+                        android:backgroundTint="@color/icon_true"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/celebration_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_gravity="center"
+                        android:text="Ивенты"
+                        android:singleLine="true"
+                        android:autoSizeTextType="uniform"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_dialog"
+                        android:backgroundTint="@color/icon_true"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/work_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Работа"
+                        android:singleLine="true"
+                        android:autoSizeTextType="uniform"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_dialog"
+                        android:backgroundTint="@color/icon_true"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:background="@drawable/bg_dialog"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/forum_icon"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:text="Форум"
+                        android:singleLine="true"
+                        android:autoSizeTextType="none"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:textColor="@android:color/white"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginRight="@dimen/_5sdp"
+                        android:layout_height="@dimen/_5sdp"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_dialog"
+                        android:backgroundTint="@color/icon_true"/>
+
+                </LinearLayout>
 
 
 
-    </GridLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:id="@+id/recyclerView_news"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp">
 
-</LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/news_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/book_item"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</FrameLayout>

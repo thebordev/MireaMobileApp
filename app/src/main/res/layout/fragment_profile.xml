@@ -3,20 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_bg_color_2"
     tools:context=".Frgaments.ProfileFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-    <Button
-        android:id="@+id/buttonToForum"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:onClick="onMyButtonClick"
-        android:text="Button" />
 
 </FrameLayout>

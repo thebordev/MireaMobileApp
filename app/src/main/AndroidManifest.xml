@@ -4,8 +4,7 @@
     package="com.example.mireaapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,10 +16,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
+        <activity android:name=".Frgaments.News.books.BookDetails"></activity>
+        <activity android:name=".Frgaments.News.books.BookLibrary" />
         <activity
             android:name=".ForumActivity"
             android:label="@string/title_activity_forum"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".IntroActivity"
             android:screenOrientation="portrait"
