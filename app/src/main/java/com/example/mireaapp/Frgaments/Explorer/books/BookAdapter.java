@@ -1,4 +1,4 @@
-package com.example.mireaapp.Frgaments.News.books;
+package com.example.mireaapp.Frgaments.Explorer.books;
 
 import android.view.LayoutInflater;
 import android.view.View;

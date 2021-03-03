@@ -5,6 +5,7 @@
     android:layout_gravity="center"
     android:layout_margin="@dimen/_10sdp"
     android:background="@drawable/bg_dialog"
+    android:backgroundTint="?attr/bg_table_shedule"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
@@ -19,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginLeft="@dimen/_8sdp"
-        app:tint="@color/icon_false" />
+        app:tint="?attr/text_color" />
 
     <TextView
         android:layout_width="0dp"
@@ -29,7 +30,7 @@
         android:fontFamily="@font/ubuntu_bold"
         android:includeFontPadding="false"
         android:text="Добавить Ссылку"
-        android:textColor="@color/icon_false"
+        android:textColor="?attr/text_color"
         android:textSize="@dimen/_14sdp"
         app:layout_constraintBottom_toBottomOf="@+id/imageAddURL_note"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +48,7 @@
         android:fontFamily="@font/ubuntu"
         android:gravity="center_vertical"
         android:hint="Вставьте ссылку"
-        android:textColor="@android:color/white"
+        android:textColor="?attr/text_color"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:includeFontPadding="false"

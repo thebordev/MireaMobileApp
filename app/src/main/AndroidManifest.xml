@@ -16,8 +16,8 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
-        <activity android:name=".Frgaments.News.books.BookDetails"></activity>
-        <activity android:name=".Frgaments.News.books.BookLibrary" />
+        <activity android:name=".Frgaments.Explorer.books.BookDetails"></activity>
+        <activity android:name=".Frgaments.Explorer.books.BookLibrary" />
         <activity
             android:name=".ForumActivity"
             android:label="@string/title_activity_forum"

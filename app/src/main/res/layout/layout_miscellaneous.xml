@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="@drawable/bg_miscellaneous"
+    android:backgroundTint="?attr/bg_table_shedule"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:layout_behavior="@string/bottom_sheet_behavior"
@@ -153,7 +154,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:includeFontPadding="false"
             android:text="цвет"
-            android:textColor="@android:color/white"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_13sdp"/>
     </LinearLayout>
     <LinearLayout
@@ -169,7 +170,7 @@
             android:layout_height="@dimen/_22sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_baseline_image_24"
-            app:tint="@color/icon_false" />
+            app:tint="?attr/text_color" />
 
         <TextView
             android:layout_width="match_parent"
@@ -178,7 +179,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:includeFontPadding="false"
             android:text="Добавить Изображение"
-            android:textColor="@color/icon_false"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_10sdp" />
 
@@ -200,7 +201,7 @@
             android:layout_height="@dimen/_22sdp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_baseline_add_link_24"
-            app:tint="@color/icon_false" />
+            app:tint="?attr/text_color" />
 
         <TextView
             android:layout_width="match_parent"
@@ -209,7 +210,7 @@
             android:fontFamily="@font/ubuntu_medium"
             android:includeFontPadding="false"
             android:text="Добавить Сслыку"
-            android:textColor="@color/icon_false"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_12sdp"
             android:layout_marginLeft="@dimen/_10sdp" />
 

@@ -21,7 +21,7 @@
         tools:layout="@layout/fragment_shedule" />
     <fragment
         android:id="@+id/ic_explorer"
-        android:name="com.example.mireaapp.Frgaments.News.NewsListFragment"
+        android:name="com.example.mireaapp.Frgaments.Explorer.NewsListFragment"
         android:label="fragment_news_details"
         tools:layout="@layout/fragment_news_details_fragmenet" />
     <fragment

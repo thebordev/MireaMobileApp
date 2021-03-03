@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Frgaments.Schedule.SheduleFragment"
-    android:background="@color/dark_bg_color_2">
+    android:background="?attr/background_color">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -30,7 +30,7 @@
                     android:fontFamily="@font/ubuntu_bold"
                     android:includeFontPadding="false"
                     android:text="Мое Расписание"
-                    android:textColor="@android:color/white"
+                    android:textColor="?attr/text_color"
                     android:textSize="@dimen/_20sdp"
                     app:layout_constraintTop_toTopOf="parent"/>
 
@@ -68,7 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/corners_hat_shedule"
-            android:backgroundTint="@android:color/white"
+            android:backgroundTint="?attr/bg_table_shedule"
             android:layout_margin="10dp"
             android:layout_below="@+id/hat_home"
             android:orientation="vertical">
@@ -92,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30 неделя (четная)"
-                        android:textColor="@android:color/darker_gray"
+                        android:textColor="?attr/text_color"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -101,7 +101,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Понедельник, 9 января"
-                        android:textColor="@android:color/darker_gray" />
+                        android:textColor="?attr/text_color" />
                 </LinearLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -115,7 +115,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:src="@drawable/ic_baseline_calendar_today_24"
-                        android:tint="@android:color/black"
+                        android:tint="?attr/text_color"
                         android:background="@android:color/transparent"/>
                 </RelativeLayout>
             </LinearLayout>

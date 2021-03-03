@@ -1,7 +1,6 @@
-package com.example.mireaapp.Frgaments.News.books;
+package com.example.mireaapp.Frgaments.Explorer.books;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityOptionsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 

@@ -55,6 +55,10 @@
     <color name="color_cat_4_explorer">#FFB300</color>
     <color name="color_cat_5_explorer">#F4511E</color>
 
+    <!-- // Shedule-->
+    <color name="bg_table_shedule_light">#DFDFDF</color>
+    <color name="bg_table_shedule_dark">#1E1E1E</color>
+
 
     <!-- colors for button style -->
 
@@ -93,5 +97,30 @@
     <!--Colors of book-->
     <color name="ligh_medium_gray">#f3f3f3</color>
     <color name="fav_icon_tint">#CAC7C7</color>
+
+
+    <!--    news image background colors -->
+    <color name="purple_bg">#905EE8</color>
+    <color name="red_bg">#F96335</color>
+    <color name="black_bg">#1E1E1E</color>
+    <color name="blue_bg">#008DFC</color>
+    <color name="yellow_bg">#FED149</color>
+
+
+    <!--    // dark theme colors-->
+    <color name="dark_primary_color_bg">#141414</color>
+    <color name="dark_primary_dark_color_bg">#141414</color>
+    <color name="dark_bg_color_bg">#141414</color>
+    <color name="dark_text_color_bg">#fafafa</color>
+    <color name="dark_icon_tint_color_bg">#A2A2A2</color>
+
+    <!--    // light theme colors-->
+    <color name="light_text_color_bg"> #363636</color>
+    <color name="light_bg_color_bg" > #ffffff</color>
+
+    <!--    // Amoled theme colors-->
+    <color name="amoled_primary_color_bg" >#000000</color>
+    <color name="amoled_primary_dark_color_bg" >#000000</color>
+    <color name="amoled_bg_color_bg" >#000000</color>
 
 </resources>

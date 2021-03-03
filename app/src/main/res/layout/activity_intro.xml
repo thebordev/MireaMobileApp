@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IntroActivity"
-    android:background="@color/color_bg_notes"
+    android:background="?attr/background_color"
     >
 
     <androidx.viewpager.widget.ViewPager
@@ -27,7 +27,7 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/corners_hat_shedule"
-        android:drawableTint="@color/gradient_end_color"
+        android:drawableTint="?attr/bg_table_shedule"
         android:text="Продолжить"
         android:paddingLeft="@dimen/_10sdp"
         android:paddingRight="@dimen/_10sdp"
@@ -73,7 +73,7 @@
     <TextView
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@color/icon_false"
+        android:textColor="?attr/bg_table_shedule"
         android:id="@+id/tv_skip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_bg_color_2"
+    android:background="?attr/background_color"
     android:orientation="vertical"
-    tools:context=".Frgaments.News.books.BookLibrary">
+    tools:context=".Frgaments.Explorer.books.BookLibrary">
 
     <LinearLayout
         android:id="@+id/hat_home"
@@ -29,7 +29,7 @@
                 android:fontFamily="@font/ubuntu_bold"
                 android:includeFontPadding="false"
                 android:text="Библиотека"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/text_color"
                 android:textSize="@dimen/_20sdp"
                 app:layout_constraintTop_toTopOf="parent"/>
 
