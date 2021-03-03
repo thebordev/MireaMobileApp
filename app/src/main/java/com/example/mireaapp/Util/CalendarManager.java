@@ -9,7 +9,7 @@ import java.util.GregorianCalendar;
 
 public class CalendarManager {
 
-    public static int MAX_WEEKS_IN_SEMESTER = 16;
+    public static final int MAX_WEEKS_IN_SEMESTER = 16;
 
     public static int getCurrentDayOfWeek(){
         Calendar c = Calendar.getInstance();
