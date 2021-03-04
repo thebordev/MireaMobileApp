@@ -2,6 +2,7 @@ package com.example.mireaapp.Frgaments.Schedule;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mireaapp.R;
@@ -48,31 +50,36 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
         ScheduleItem scheduleItem = scheduleItemsList.get(position);
 
         holder.titleTextView.setText(scheduleItem.getScheduleItemName());
-        holder.cabinetTextView.setText(scheduleItem.getCabinet());
+        holder.cabinetTextView.setText(scheduleItem.getCabinet().toUpperCase());
         holder.timeStartTextView.setText(scheduleItem.getTimeStart());
         holder.timeEndTextView.setText(scheduleItem.getTimeEnd());
         holder.typeTextView.setText(scheduleItem.getType());
-
-        GradientDrawable shape = (GradientDrawable) holder.leftBar.getBackground();
-
-        GradientDrawable drawable = (GradientDrawable) holder.leftBar.getResources().getDrawable(R.drawable.schedule_item_left_bar);
-        drawable.mutate();
+        holder.teacherTextView.setText(scheduleItem.getTeacher());
 
         if (scheduleItem.getScheduleItemName() == "null"){
          holder.itemCard.setVisibility(View.INVISIBLE);
             holder.itemCard.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, 180));
-            //setLayoutParams(new LinearLayout.LayoutParams(1080, 400))
         }
+        else {
+            if (scheduleItem.getType() == "null") {
+                holder.typeTextView.setVisibility(View.INVISIBLE);
+            }
+            if (scheduleItem.getCabinet() == "null") {
+                holder.cabinetTextView.setVisibility(View.INVISIBLE);
+            }
+            if (scheduleItem.getTeacher() == "null"){
+                holder.teacherTextView.setVisibility(View.INVISIBLE);
+            }
 
-        if(scheduleItem.getType().equals("Практика")){
-            drawable.setColor(R.color.dark_schedule_left_bar_practice);
-            //shape.setColor(R.color.dark_schedule_left_bar_practice);
-        }
-        else if(scheduleItem.getType().equals("Лекция")){
-            drawable.setColor(R.color.dark_schedule_left_bar_lecture);
-        }
-        else if(scheduleItem.getType().equals("Лабораторная")){
-            drawable.setColor(R.color.dark_schedule_left_bar_lab);
+            if (scheduleItem.getType().equals("Практика")) {
+                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_practice), PorterDuff.Mode.SRC_ATOP);
+            } else if (scheduleItem.getType().equals("Лекция")) {
+                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_lecture), PorterDuff.Mode.SRC_ATOP);
+            } else if (scheduleItem.getType().equals("Лабораторная")) {
+                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_lab), PorterDuff.Mode.SRC_ATOP);
+            } else {
+                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_icon_tint_color_bg), PorterDuff.Mode.SRC_ATOP);
+            }
         }
     }
 
@@ -87,6 +94,7 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
         private TextView titleTextView;
         private TextView timeStartTextView;
         private TextView timeEndTextView;
+        private TextView teacherTextView;
         private FrameLayout leftBar;
         private LinearLayout itemCard;
 
@@ -98,6 +106,7 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
             typeTextView = itemView.findViewById(R.id.tv_schedule_item_type);
             titleTextView = itemView.findViewById(R.id.tv_schedule_item_title);
             leftBar = itemView.findViewById(R.id.fl_schedule_item_left_bar);
+            teacherTextView = itemView.findViewById(R.id.tv_schedule_item_teacher);
             itemCard = itemView.findViewById(R.id.schedule_item_card);
         }
     }

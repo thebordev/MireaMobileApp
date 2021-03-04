@@ -13,7 +13,6 @@
 
     <!--    here we define dark theme style -->
     <style name="DarkTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
         <item name="colorPrimary">@color/colorAccent</item>
         <item name="colorPrimaryDark">@color/dark_primary_dark_color</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -22,8 +21,11 @@
         <item name="background_color">@color/dark_bg_color</item>
         <item name="android:textColorSecondary">@color/dark_icon_tint_color</item>
         <item name="text_hint_color">@color/dark_icon_tint_color</item>
+    </style>
 
-
+    <style name="AlertDialogCustom" parent="@android:style/Theme.Dialog">
+        <item name="android:textColor">@color/dark_text_color</item>
+        <item name="android:colorBackground">@color/dark_bg_color</item>
     </style>
 
     <style name="ThemeOverlay.search" parent="AppTheme">

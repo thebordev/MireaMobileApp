@@ -180,6 +180,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:id="@+id/tv_schedule_item_teacher"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="online"
