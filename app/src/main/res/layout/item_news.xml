@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView android:id="@+id/itemNews"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/_12sdp"
+    android:layout_marginEnd="@dimen/_12sdp"
+    android:layout_marginTop="@dimen/_12sdp"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_12sdp"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmerNews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="@dimen/_200sdp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#fff">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                app:cardCornerRadius="@dimen/_10sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:layout_height="@dimen/_150sdp">
+
+                <ImageView
+                    android:id="@+id/imageNote_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/banner_1"
+                    android:scaleType="centerCrop"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textTitle_news"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Радиоинфоком – 2021"
+                    android:maxLines="2"
+                    android:fontFamily="@font/ubuntu_bold"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    android:layout_marginRight="@dimen/_10sdp"
+                    android:textColor="?attr/text_color"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginLeft="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/textDateTime_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Апрель 16, 2019"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/ubuntu"
+                    android:textSize="@dimen/_10sdp"/>
+
+                <ImageView
+                    android:layout_width="@dimen/_15sdp"
+                    android:src="@drawable/ic_baseline_bookmark_border_24"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="@dimen/_80sdp"
+                    android:layout_height="@dimen/_15sdp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</androidx.cardview.widget.CardView>

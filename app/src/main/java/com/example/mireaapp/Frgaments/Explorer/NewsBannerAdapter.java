@@ -10,11 +10,11 @@ import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.List;
 
-public class NewsAdapter extends SliderViewAdapter<NewsAdapter.MyViewHolder> {
+public class NewsBannerAdapter extends SliderViewAdapter<NewsBannerAdapter.MyViewHolder> {
 
     List<Integer> imageList;
 
-    NewsAdapter(List<Integer> list) {
+    NewsBannerAdapter(List<Integer> list) {
         this.imageList = list;
     }
 

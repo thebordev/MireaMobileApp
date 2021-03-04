@@ -9,10 +9,6 @@ public class Book implements Serializable {
     private float rating;
     private int drawableResource;
 
-    public Book() {
-
-    }
-
     public Book(int drawableResource) {
         this.drawableResource = drawableResource;
     }

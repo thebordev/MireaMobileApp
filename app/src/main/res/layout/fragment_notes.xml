@@ -21,7 +21,7 @@
             android:fontFamily="@font/ubuntu_bold"
             android:includeFontPadding="false"
             android:text="Мои Земетки"
-            android:textColor="@android:color/white"
+            android:textColor="?attr/text_color"
             android:textSize="@dimen/_20sdp"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -41,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:background="@drawable/bg_search"
+                android:background="?attr/bg_table_shedule"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_10sdp"
@@ -53,7 +53,7 @@
                     android:layout_height="@dimen/_20sdp"
                     android:contentDescription="Поиск заметок"
                     android:src="@drawable/ic_baseline_search_24"
-                    app:tint="@color/icon_false" />
+                    app:tint="?attr/text_color" />
 
                 <EditText
                     android:id="@+id/inputSearch_notes"
@@ -80,14 +80,14 @@
                 android:layout_height="@dimen/_35sdp"
                 android:layout_weight="1"
                 android:layout_marginLeft="@dimen/_5sdp"
-                android:background="@drawable/bg_dialog">
+                android:background="?attr/bg_table_shedule">
 
                 <ImageView
                     android:id="@+id/fabCreateDeadline_deadline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_baseline_add_24"
-                    app:tint="@color/icon_false"
+                    app:tint="?attr/text_color"
                     android:layout_gravity="center_vertical|center_horizontal"/>
 
 
