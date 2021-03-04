@@ -101,6 +101,13 @@ public class SheduleFragment extends Fragment {
                             Toast.makeText(getActivity(), "Проверьте правильность введённой группы. Пример: ИКБО-25-20", Toast.LENGTH_SHORT).show();
                         } else {
                             downloadScheduleData(inputGroup.getText().toString());
+                            if(!preferences.getString("selected_group", "").equals("")) {
+                                try {
+                                    initializeScheduleData(currentView, CalendarManager.getCurrentWeek(), CalendarManager.getCurrentDayOfWeek(), preferences.getString("selected_group", ""));
+                                } catch (ParseException e) {
+                                    e.printStackTrace();
+                                }
+                            }
                             scheduleSettingsDialog.dismiss();
                         }
                     }
