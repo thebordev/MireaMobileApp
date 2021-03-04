@@ -65,6 +65,7 @@ public class SheduleFragment extends Fragment {
             e.printStackTrace();
         }
 
+        // кнопка выбора недели
         ImageButton button = (ImageButton) currentView.findViewById(R.id.schedule_calendar_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,20 +83,19 @@ public class SheduleFragment extends Fragment {
                 buttonsLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT, Constraints.LayoutParams.HORIZONTAL));
                 layout.addView(buttonsLayout);
 
+                // цикл отображения кнопок выбора недели
                 for (int i = 1; i <= CalendarManager.MAX_WEEKS_IN_SEMESTER; i++) {
                     // создаём новую кнопку с id = i
                     Button button = new Button(currentView.getContext());
                     button.setText(String.valueOf(i));
-                    button.setId(i);
 
-                    //final int id_ = button.getId();
-                    button.setId(i);
+                    button.setTag(i);
 
                     buttonsLayout.addView(button);
 
                     button.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View view) {
-                            initializeScheduleData(currentView, view.getId(), 0);
+                            initializeScheduleData(currentView, (int)view.getTag(), 0);
                         }
                     });
 
