@@ -189,45 +189,47 @@
                         android:backgroundTint="@color/icon_true"/>
 
                 </LinearLayout>
+
                 <LinearLayout
+                    android:id="@+id/forum_button"
                     android:layout_width="@dimen/_60sdp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="@dimen/_10sdp"
-                    android:paddingTop="@dimen/_5sdp"
-                    android:paddingLeft="@dimen/_5sdp"
-                    android:paddingBottom="@dimen/_5sdp"
-                    android:paddingRight="@dimen/_5sdp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_dialog"
                     android:backgroundTint="?attr/bg_table_shedule"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/_5sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingRight="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp">
 
                     <ImageView
                         android:layout_width="@dimen/_35sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_gravity="center"
-                        android:src="@drawable/forum_icon"/>
+                        android:src="@drawable/forum_icon" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Форум"
-                        android:singleLine="true"
                         android:autoSizeTextType="none"
                         android:fontFamily="@font/ubuntu_medium"
-                        android:textColor="?attr/text_color"/>
+                        android:singleLine="true"
+                        android:text="Форум"
+                        android:textColor="?attr/text_color" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:layout_height="@dimen/_5sdp"
                         android:layout_marginLeft="@dimen/_5sdp"
                         android:layout_marginTop="@dimen/_5sdp"
                         android:layout_marginRight="@dimen/_5sdp"
-                        android:layout_height="@dimen/_5sdp"
-                        android:visibility="gone"
                         android:background="@drawable/bg_dialog"
-                        android:backgroundTint="@color/icon_true"/>
+                        android:backgroundTint="@color/icon_true"
+                        android:visibility="gone" />
 
                 </LinearLayout>
 

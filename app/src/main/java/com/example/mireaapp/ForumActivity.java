@@ -1,31 +1,32 @@
 package com.example.mireaapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.core.content.ContextCompat;
 
 public class ForumActivity extends AppCompatActivity {
 
+    private static String FORUM_URL = "https://mirea.ninja";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+    }
 
-        WebView webView = (WebView) findViewById(R.id.forumWebView);
+    @Override public void onBackPressed() {
+        super.onBackPressed();
+    }
 
-        WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+    @Override
+    protected void onNewIntent(final Intent intent) {
+        super.onNewIntent(intent);
 
-        webView.loadUrl("https://mirea.ninja/");
+        if (intent == null) {
+            return;
+        }
     }
 }
