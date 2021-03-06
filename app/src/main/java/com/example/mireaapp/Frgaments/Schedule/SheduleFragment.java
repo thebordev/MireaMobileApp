@@ -14,7 +14,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,6 +92,75 @@ public class SheduleFragment extends Fragment {
 
         final EditText inputGroup = scheduleSettingsView.findViewById(R.id.et_input_schedule_group);
         inputGroup.requestFocus();
+
+        EditText groupEditText = (EditText) scheduleSettingsView.findViewById(R.id.et_input_schedule_group);
+
+        // методы вызываются рекурсивно, поэтому без повторяющегося кода не обойтись, иначе приложение зависнет
+        groupEditText.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after)
+            {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.d("ET", "onTextChanged: " + s.toString());
+                Log.d("ET", "start: " + String.valueOf(start));
+                Log.d("ET", "before: " + String.valueOf(before));
+                if (s != null && s.length() > 0) {
+                    String groupText = s.toString();
+                    if (groupText.length() <= 4) {
+                        String lastChar = groupText.substring(groupText.length() - 1);
+                        if (!lastChar.matches("[а-яА-Я]")) {
+                            groupText = groupText.substring(0, groupText.length() - 1);
+                            groupEditText.setText(groupText);
+                            groupEditText.setSelection(groupEditText.getText().length());
+                        }
+                    }
+                    if(before < s.length() && start != 4 && start != 7){
+                        if ((groupText.length() == 4 || groupText.length() == 7)) {
+                            groupText += "-";
+                            groupEditText.setText(groupText);
+                            groupEditText.setSelection(groupEditText.getText().length());
+                        }
+                        else if ((groupText.length() == 5 || groupText.length() == 8)) {
+                            StringBuffer sb = new StringBuffer(groupText);
+                            if(groupText.length() == 5) {
+                                if(groupText.charAt(4) != '-')
+                                    sb.insert(4, "-");
+                            }
+                            else if (groupText.length() == 8) {
+                                if(groupText.charAt(7) != '-')
+                                    sb.insert(7, "-");
+                            }
+                            groupText = sb.toString();
+                            groupEditText.setText(groupText);
+                            groupEditText.setSelection(groupEditText.getText().length());
+                        }
+                    }
+                    else if(before > s.length()){
+                        if ((groupText.length() == 5 || groupText.length() == 8)) {
+                            groupText = groupText.substring(0, groupText.length() - 1);
+                            groupEditText.setText(groupText);
+                            groupEditText.setSelection(groupEditText.getText().length());
+                        }
+                    }
+
+                    if(s.length() > 10){
+                        groupText = groupText.substring(0, groupText.length() - 1);
+                        groupEditText.setText(groupText);
+                        groupEditText.setSelection(groupEditText.getText().length());
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
 
         scheduleSettingsView.findViewById(R.id.tv_apply_schedule_settings).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,7 +312,7 @@ public class SheduleFragment extends Fragment {
     }
 
     void downloadScheduleData(String group){
-        Request request = new Request.Builder().url("https://mirea.ninja:500/schedule/all/" + group).build();
+        Request request = new Request.Builder().url("https://mirea.ninja:500/schedule/all/" + group.toUpperCase()).build();
 
         SharedPreferences preferences = this.getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE );
         //String selectedGroup = preferences.getString("selected_group", "");

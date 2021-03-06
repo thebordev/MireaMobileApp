@@ -39,6 +39,7 @@
 
     <EditText
         android:id="@+id/et_input_schedule_group"
+        android:maxLength="10"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_35sdp"
         android:layout_marginStart="@dimen/_8sdp"
@@ -47,12 +48,13 @@
         android:background="@null"
         android:fontFamily="@font/ubuntu"
         android:gravity="center_vertical"
-        android:hint="Введите группу"
+        android:textAllCaps="true"
+        android:hint="ХХХХ-00-00"
         android:textColor="?attr/text_color"
         android:imeOptions="actionDone"
         android:importantForAutofill="no"
         android:includeFontPadding="false"
-        android:inputType="textUri"
+        android:inputType="textCapCharacters"
         android:paddingStart="@dimen/_8sdp"
         android:paddingEnd="@dimen/_8sdp"
         android:textColorHint="@color/icon_false"
