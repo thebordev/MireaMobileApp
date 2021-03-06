@@ -41,7 +41,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:background="?attr/bg_table_shedule"
+                android:background="@drawable/bg_dialog"
+                android:backgroundTint="?attr/bg_table_shedule"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
                 android:paddingStart="@dimen/_10sdp"
@@ -80,7 +81,8 @@
                 android:layout_height="@dimen/_35sdp"
                 android:layout_weight="1"
                 android:layout_marginLeft="@dimen/_5sdp"
-                android:background="?attr/bg_table_shedule">
+                android:background="@drawable/bg_dialog"
+                android:backgroundTint="?attr/bg_table_shedule">
 
                 <ImageView
                     android:id="@+id/fabCreateDeadline_deadline"

@@ -49,11 +49,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SheduleFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SheduleFragment extends Fragment {
     //Создаем список вьюх которые будут создаваться
     private RecyclerView rvAllScheduleItems;
@@ -201,7 +197,7 @@ public class SheduleFragment extends Fragment {
                 if (i == dayOfWeek) {
                     view.findViewWithTag(dayOfWeek).getBackground().setColorFilter(Color.parseColor("#9a9898"), PorterDuff.Mode.SRC_ATOP);
                 } else {
-                    view.findViewWithTag(i).getBackground().setColorFilter(Color.parseColor("#cbcbcb"), PorterDuff.Mode.SRC_ATOP);
+                    view.findViewWithTag(i).getBackground().setColorFilter(Color.parseColor("#0881ed"), PorterDuff.Mode.SRC_ATOP);
                 }
             }
 

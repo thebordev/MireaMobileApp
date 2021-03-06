@@ -44,7 +44,7 @@ public class IntroActivity extends AppCompatActivity {
 
         if (restorePrefData()) {
 
-            Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
+            Intent mainActivity = new Intent(getApplicationContext(), SplashScreen.class);
             startActivity(mainActivity);
             finish();
 
@@ -75,7 +75,7 @@ public class IntroActivity extends AppCompatActivity {
         mList.add(new ScreenItem("Карта", "Найди нужную аудиторию и проложи до нее подробный маршрут", R.drawable.img2));
 
         // setup viewpager
-        screenPager =findViewById(R.id.screen_viewpager);
+        screenPager = findViewById(R.id.screen_viewpager);
         introViewAdapter = new IntroViewAdapter(this,mList);
         screenPager.setAdapter(introViewAdapter);
 

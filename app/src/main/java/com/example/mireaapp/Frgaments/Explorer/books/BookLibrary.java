@@ -3,6 +3,7 @@ package com.example.mireaapp.Frgaments.Explorer.books;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.content.Intent;
 import android.os.Build;
@@ -11,9 +12,11 @@ import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.mireaapp.R;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,13 +27,15 @@ public class BookLibrary extends AppCompatActivity implements BookCallback{
     private BookAdapter bookAdapter;
     private List<Book> mdata;
     private ImageView btnAddBook;
+    private ViewPager2 viewPager2;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_library);
 
-        initViews();
+        // initViews();
         initmdataBooks();
         setupBookAdapter();
     }
@@ -49,21 +54,21 @@ public class BookLibrary extends AppCompatActivity implements BookCallback{
         mdata.add(new Book(R.drawable.book3));
     }
 
-    private void initViews() {
-
-        btnAddBook = findViewById(R.id.favorite_bottom_book);
-        rvBooks = findViewById(R.id.rv_book);
-        rvBooks.setLayoutManager(new LinearLayoutManager(this));
-        rvBooks.setHasFixedSize(true);
-        rvBooks.setItemAnimator(new CustomItemAnimator());
-
-        btnAddBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addBook();
-            }
-        });
-    }
+//    private void initViews() {
+//
+//        btnAddBook = findViewById(R.id.favorite_bottom_book);
+//        rvBooks = findViewById(R.id.rv_book);
+//        rvBooks.setLayoutManager(new LinearLayoutManager(this));
+//        rvBooks.setHasFixedSize(true);
+//        rvBooks.setItemAnimator(new CustomItemAnimator());
+//
+//        btnAddBook.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                addBook();
+//            }
+//        });
+//    }
 
     private void removeBook() {
 
