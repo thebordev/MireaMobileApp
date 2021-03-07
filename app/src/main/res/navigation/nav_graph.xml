@@ -16,9 +16,9 @@
         tools:layout="@layout/fragment_notes" />
     <fragment
         android:id="@+id/ic_shedule"
-        android:name="com.example.mireaapp.Frgaments.Schedule.SheduleFragment"
+        android:name="com.example.mireaapp.Frgaments.Schedule.ScheduleFragment"
         android:label="fragment_shedule"
-        tools:layout="@layout/fragment_shedule" />
+        tools:layout="@layout/fragment_schedule" />
     <fragment
         android:id="@+id/ic_explorer"
         android:name="com.example.mireaapp.Frgaments.Explorer.ExplorerFragment"
@@ -29,25 +29,5 @@
         android:name="com.example.mireaapp.Frgaments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.mireaapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
-
-        <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.mireaapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
-    </fragment>
 
 </navigation>
