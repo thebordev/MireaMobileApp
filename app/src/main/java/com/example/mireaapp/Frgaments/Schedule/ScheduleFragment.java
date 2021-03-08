@@ -136,7 +136,7 @@ public class ScheduleFragment extends Fragment {
             dayButtons.get(i).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View view) {
                     selectedDayOfWeek = (int) view.getTag();
-                    schedulePager.setCurrentItem((int) view.getTag()+1);
+                    schedulePager.setCurrentItem((int) view.getTag());
                     setSelectedDayButton(selectedDayOfWeek);
                 }
             });
@@ -237,6 +237,7 @@ public class ScheduleFragment extends Fragment {
                 }
             });
             // инициализация списка расписания для текущей недели
+            schedulePager.setOffscreenPageLimit(6);
             schedulePager.setAdapter(pagerAdapter);
         }
     }
