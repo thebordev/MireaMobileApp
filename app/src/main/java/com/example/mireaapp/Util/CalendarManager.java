@@ -73,7 +73,7 @@ public class CalendarManager {
             startDate = dateFormat.parse("01.09." + String.valueOf(currentYear));
         }
         else{
-            startDate = dateFormat.parse("09.02." + String.valueOf(currentYear));
+            startDate = dateFormat.parse("08.02." + String.valueOf(currentYear));
         }
 
         long milliseconds = currentDate.getTime() - startDate.getTime();
