@@ -7,7 +7,7 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-@Database(entities = Schedule.class, version = 1, exportSchema = false)
+@Database(entities = Schedule.class, version = 2, exportSchema = false)
 public abstract class ScheduleDatabase extends RoomDatabase {
 
     private static ScheduleDatabase scheduleDatabase;

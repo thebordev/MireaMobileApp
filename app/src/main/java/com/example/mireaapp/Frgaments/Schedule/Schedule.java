@@ -1,5 +1,6 @@
 package com.example.mireaapp.Frgaments.Schedule;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -8,8 +9,9 @@ import java.io.Serializable;
 
 @Entity(tableName = "schedules")
 public class Schedule implements Serializable {
-    @PrimaryKey(autoGenerate = true)
-    private int id;
+    @PrimaryKey()
+    @NonNull
+    private String groupKey;
 
     @ColumnInfo(name = "group")
     private String group;
@@ -25,6 +27,7 @@ public class Schedule implements Serializable {
 
     public Schedule(String group, String jsonData, long lastUpdate, long lastServerUpdate){
         this.group = group;
+        this.groupKey = this.group;
         this.jsonData = jsonData;
         this.lastUpdate = lastUpdate;
         this.lastServerUpdate = lastServerUpdate;
@@ -32,10 +35,6 @@ public class Schedule implements Serializable {
 
     public String getGroup() {
         return group;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public long getLastServerUpdate() {
@@ -54,10 +53,6 @@ public class Schedule implements Serializable {
         this.group = group;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setJsonData(String jsonData) {
         this.jsonData = jsonData;
     }
@@ -65,6 +60,10 @@ public class Schedule implements Serializable {
     public void setLastServerUpdate(long lastServerUpdate) {
         this.lastServerUpdate = lastServerUpdate;
     }
+
+    public String getGroupKey() { return groupKey; }
+
+    public void setGroupKey(String groupKey) { this.groupKey = groupKey; }
 
     public void setLastUpdate(long lastUpdate) {
         this.lastUpdate = lastUpdate;
