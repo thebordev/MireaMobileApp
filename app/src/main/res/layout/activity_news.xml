@@ -64,31 +64,36 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_margin="10dp"
+                    android:id="@+id/button_news"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_margin="10dp"
                     android:background="@drawable/bg_dialog"
-                    android:backgroundTint="@color/icon_true"
-                    android:layout_height="wrap_content">
+                    android:backgroundTint="@color/icon_true">
+
                     <TextView
+                        android:id="@+id/button_news_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="новости"
                         android:fontFamily="@font/ubuntu_medium"
-                        android:textColor="@color/ligh_medium_gray"
                         android:paddingLeft="@dimen/_10sdp"
-                        android:paddingRight="@dimen/_10sdp"
                         android:paddingTop="5dp"
-                        android:textSize="15dp"
+                        android:paddingRight="@dimen/_10sdp"
                         android:paddingBottom="5dp"
-                        />
+                        android:text="новости"
+                        android:textColor="@color/ligh_medium_gray"
+                        android:textSize="15dp" />
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/button_announce"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/icon_true">
                     <TextView
+                        android:id="@+id/button_announce_text"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="объявления"

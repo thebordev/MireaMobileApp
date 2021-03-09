@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import com.example.mireaapp.Frgaments.Explorer.books.BookLibrary;
 import com.example.mireaapp.Frgaments.Explorer.events.EventActivity;
 import com.example.mireaapp.Frgaments.Explorer.news.News;
+import com.example.mireaapp.Frgaments.Explorer.news.NewsActivity;
 import com.example.mireaapp.Frgaments.Explorer.news.NewsAdapter;
 import com.example.mireaapp.Frgaments.Explorer.stories.StoriesAdapter;
 import com.example.mireaapp.Frgaments.Explorer.stories.Story;
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 
 public class ExplorerFragment extends Fragment {
 
-    private LinearLayout bookItem, eventBtn;
+    private LinearLayout bookItem, eventBtn, moreNewsBtn;
 
     private RecyclerView newsRecyclerView, storiesBar;
     private NewsAdapter newsAdapter;
@@ -56,6 +57,8 @@ public class ExplorerFragment extends Fragment {
         eventBtn = view.findViewById(R.id.event_btn);
         newsRecyclerView = view.findViewById(R.id.news_list);
         storiesBar = view.findViewById(R.id.storiesBar_explorer);
+        moreNewsBtn = view.findViewById(R.id.more_news_button);
+
         LinearLayout forumButton = view.findViewById(R.id.forum_button);
 
         forumButton.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +89,14 @@ public class ExplorerFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), BookLibrary.class);
+                startActivity(intent);
+            }
+        });
+
+        moreNewsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), NewsActivity.class);
                 startActivity(intent);
             }
         });

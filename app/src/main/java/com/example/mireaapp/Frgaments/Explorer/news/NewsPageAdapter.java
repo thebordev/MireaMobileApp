@@ -8,56 +8,43 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.mireaapp.R;
 
 import java.util.ArrayList;
 
-public class NewsPageAdapter extends RecyclerView.Adapter<NewsPageAdapter.ViewHolder> {
+public class NewsPageAdapter extends FragmentStateAdapter {
 
-    ArrayList<News> models = new ArrayList<>();
-    Context context;
+    private ArrayList<Fragment> arrayList = new ArrayList<>();
 
-    public NewsPageAdapter(ArrayList<News> models, Context context) {
-        this.models = models;
-        this.context = context;
+    public NewsPageAdapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_news_page, parent, false);
-        return new ViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.tvTittle.setText(models.get(position).getTitle());
-        holder.tvDescription.setText(models.get(position).getDescription());
-        holder.tvDateTime.setText(models.get(position).getDateTime());
-        holder.imageView.setImageResource(models.get(position).getImageUrl());
+    public Fragment createFragment(int position) {
+        Fragment fragment;
+        switch (position) {
+            case 0:
+                fragment = (NewsFragment.newInstance());
+                break;
+            case 1:
+                fragment = (AnnouncementsFragment.newInstance());
+                break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + position);
+        }
+        return fragment;
     }
 
     @Override
     public int getItemCount() {
-        return models.size();
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
-        TextView tvTittle, tvDateTime, tvDescription;
-        ImageView imageView;
-
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-
-            tvTittle = itemView.findViewById(R.id.textTitle_newsPage);
-            tvDateTime = itemView.findViewById(R.id.textDateTime_newsPage);
-            tvDescription = itemView.findViewById(R.id.textDescription_newsPage);
-            imageView = itemView.findViewById(R.id.imageNote_newsPage);
-
-        }
+        return 2;
     }
 }

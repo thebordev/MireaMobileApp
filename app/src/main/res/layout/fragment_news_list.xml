@@ -274,33 +274,34 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:id="@+id/more_news_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:backgroundTint="?attr/bg_table_shedule"
-                            android:padding="@dimen/_5sdp"
-                            android:gravity="center_vertical"
                             android:background="@drawable/bg_dialog"
-                            android:orientation="horizontal">
+                            android:backgroundTint="?attr/bg_table_shedule"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            android:padding="@dimen/_5sdp">
 
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="ещё"
-                                android:gravity="center_vertical"
                                 android:layout_marginLeft="@dimen/_5sdp"
                                 android:layout_marginRight="@dimen/_1sdp"
                                 android:fontFamily="@font/ubuntu_medium"
-                                android:textColor="?attr/text_color"/>
+                                android:gravity="center_vertical"
+                                android:text="ещё"
+                                android:textColor="?attr/text_color" />
 
                             <ImageView
                                 android:layout_width="@dimen/_12sdp"
                                 android:layout_height="@dimen/_12sdp"
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginTop="2dp"
-                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                                 android:background="@drawable/bg_profile_icon"
-                                android:backgroundTint="?attr/bg_table_shedule"/>
+                                android:backgroundTint="?attr/bg_table_shedule"
+                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
 
 
                         </LinearLayout>
