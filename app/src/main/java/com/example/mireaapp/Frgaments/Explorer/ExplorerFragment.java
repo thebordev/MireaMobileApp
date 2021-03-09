@@ -7,7 +7,6 @@ import android.os.Bundle;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,25 +16,26 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import com.example.mireaapp.ForumActivity;
 import com.example.mireaapp.Frgaments.Explorer.books.BookLibrary;
+import com.example.mireaapp.Frgaments.Explorer.events.EventActivity;
 import com.example.mireaapp.Frgaments.Explorer.news.News;
 import com.example.mireaapp.Frgaments.Explorer.news.NewsAdapter;
+import com.example.mireaapp.Frgaments.Explorer.stories.StoriesAdapter;
+import com.example.mireaapp.Frgaments.Explorer.stories.Story;
 import com.example.mireaapp.R;
-import com.smarteist.autoimageslider.SliderAnimations;
-import com.smarteist.autoimageslider.SliderView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ExplorerFragment extends Fragment {
 
-    private SliderView sliderView;
-    private LinearLayout bookItem;
+    private LinearLayout bookItem, eventBtn;
 
-    private RecyclerView newsRecyclerView;
+    private RecyclerView newsRecyclerView, storiesBar;
     private NewsAdapter newsAdapter;
+    private StoriesAdapter storiesAdapter;
+
     ArrayList<News> models = new ArrayList<>();
+    ArrayList<Story> stories = new ArrayList<>();
 
     public ExplorerFragment() {
         // Required empty public constructor
@@ -52,9 +52,10 @@ public class ExplorerFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_news_list, container, false);
 
-        sliderView = view.findViewById(R.id.imageSlider_explorer);
         bookItem = view.findViewById(R.id.bookItem);
+        eventBtn = view.findViewById(R.id.event_btn);
         newsRecyclerView = view.findViewById(R.id.news_list);
+        storiesBar = view.findViewById(R.id.storiesBar_explorer);
         LinearLayout forumButton = view.findViewById(R.id.forum_button);
 
         forumButton.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +74,13 @@ public class ExplorerFragment extends Fragment {
             }
         });
 
+        eventBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), EventActivity.class);
+                startActivity(intent);
+            }
+        });
 
         bookItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,25 +90,25 @@ public class ExplorerFragment extends Fragment {
             }
         });
 
-        initBanners();
+        initStories();
         initNewsList();
 
         // Inflate the layout for this fragment
         return view;
     }
 
-    private void initBanners() {
+    private void initStories() {
 
-        List<Integer> images = new ArrayList<>();
-        images.add(R.drawable.banner_1);
-        images.add(R.drawable.banner_2);
-        images.add(R.drawable.banner_3);
-        images.add(R.drawable.error_image);
-        NewsBannerAdapter newsAdapter = new NewsBannerAdapter(images);
+        storiesBar.setVisibility(View.VISIBLE);
 
-        sliderView.setSliderAdapter(newsAdapter);
-        sliderView.setAutoCycle(true);
-        sliderView.setSliderTransformAnimation(SliderAnimations.ZOOMOUTTRANSFORMATION);
+        storiesAdapter = new StoriesAdapter(getContext(), stories);
+
+        stories.add(new Story("mirea"));
+
+        storiesBar.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
+        storiesBar.hasFixedSize();
+        storiesBar.setAdapter(storiesAdapter);
+
 
     }
 
@@ -108,14 +116,16 @@ public class ExplorerFragment extends Fragment {
 
         newsAdapter = new NewsAdapter(models, getContext());
 
-        newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         newsRecyclerView.hasFixedSize();
         newsRecyclerView.setAdapter(newsAdapter);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", "", ""));
+                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_1, ""));
+                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_2, ""));
+                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_3, ""));
 
                 newsAdapter.notifyDataSetChanged();
             }

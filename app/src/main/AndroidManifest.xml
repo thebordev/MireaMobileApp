@@ -16,7 +16,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="q">
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".Frgaments.Explorer.news.NewsActivity"></activity>
+        <activity android:name=".Frgaments.Explorer.events.EventActivity" />
+        <activity android:name=".SplashScreen" />
         <activity android:name=".Frgaments.Explorer.books.BookDetails" />
         <activity android:name=".Frgaments.Explorer.books.BookLibrary" />
         <activity

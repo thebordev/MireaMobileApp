@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView android:id="@+id/itemNews"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/_12sdp"
     android:layout_marginEnd="@dimen/_12sdp"
@@ -11,25 +11,20 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerNews"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
         <LinearLayout
-            android:layout_width="@dimen/_200sdp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#fff">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                app:cardCornerRadius="@dimen/_10sdp"
+                app:cardCornerRadius="@dimen/_5sdp"
                 android:layout_margin="@dimen/_8sdp"
                 android:layout_height="@dimen/_150sdp">
 
                 <ImageView
-                    android:id="@+id/imageNote_news"
+                    android:id="@+id/imageNote_newsPage"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/banner_1"
@@ -41,17 +36,19 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textTitle_news"
+                    android:id="@+id/textTitle_newsPage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Радиоинфоком – 2021"
                     android:maxLines="2"
+                    android:textSize="@dimen/_13sdp"
                     android:fontFamily="@font/ubuntu_bold"
                     android:layout_marginLeft="@dimen/_10sdp"
                     android:layout_marginRight="@dimen/_10sdp"
                     android:textColor="?attr/text_color"/>
 
                 <TextView
+                    android:id="@+id/textDescription_newsPage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="«Даже когда мне говорят „здравствуй“, а не „здравствуйте“, я думаю „ага-а, тебе одну звездочку поставить?“»\n\n Система социальных рейтингов постепенно входит в нашу жизнь: после бума агрегаторов такси россияне стали чаще вызывать машины и оценивать поездки в приложениях. Звёздочки на дисплее не просто влияют на статус таксиста в компании и его прибыль, но и трансформируют коммуникацию с пассажирами, формализуют её и лишают человечности.\n\n В новом выпуске подкаста рассказываем, как уже сегодня рейтинги заменяют реальные отношения между людьми, зачем таксисты и клиенты гадят друг другу, почему водители бастуют, к чему приводят их протесты, а также о том, как обхитрить сервис и почему человеческие взаимоотношения всё ещё побеждают алгоритмы."
@@ -74,7 +71,7 @@
                 android:weightSum="2">
 
                 <TextView
-                    android:id="@+id/textDateTime_news"
+                    android:id="@+id/textDateTime_newsPage"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Апрель 16, 2019"
@@ -86,15 +83,12 @@
                     android:layout_width="@dimen/_15sdp"
                     android:src="@drawable/ic_baseline_bookmark_border_24"
                     android:layout_weight="1"
-                    android:layout_marginLeft="@dimen/_80sdp"
+                    android:layout_marginLeft="@dimen/_140sdp"
                     android:layout_height="@dimen/_15sdp"/>
 
             </LinearLayout>
 
 
         </LinearLayout>
-
-
-    </com.facebook.shimmer.ShimmerFrameLayout>
 
 </androidx.cardview.widget.CardView>

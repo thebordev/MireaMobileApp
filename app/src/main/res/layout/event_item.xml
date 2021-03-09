@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_300sdp"
+    android:layout_marginTop="@dimen/_10sdp"
+    android:layout_marginLeft="@dimen/_10sdp"
+    android:layout_marginBottom="@dimen/_10sdp"
+    android:layout_marginRight="@dimen/_50sdp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="@dimen/_10sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/event_bg"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:layout_height="match_parent"
+            android:gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portmore Fest"
+                android:textColor="@android:color/white"
+                android:fontFamily="@font/ubuntu_bold"
+                android:textSize="@dimen/_20sdp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="5dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_outline_location_on_24"
+                    app:tint="@color/ligh_medium_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:layout_gravity="center"
+                    android:text="пр. Вернадского, 78"
+                    android:textColor="@color/ligh_medium_gray"
+                    android:fontFamily="@font/ubuntu_medium"
+                    android:layout_marginLeft="@dimen/_10sdp"
+                    />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/_27sdp"
+                        android:layout_height="@dimen/_27sdp"
+                        android:src="@drawable/profile"
+                        android:layout_centerVertical="true"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@android:color/white"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/_29sdp"
+                        android:layout_height="@dimen/_29sdp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/profile"
+                        android:layout_marginLeft="@dimen/_10sdp"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@android:color/white"/>
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/profile"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/_25sdp"
+                        app:civ_border_width="1dp"
+                        app:civ_border_color="@android:color/white"/>
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/_5sdp"
+                    android:layout_height="@dimen/_5sdp"
+                    android:src="@drawable/ic_baseline_fiber_manual_record_24"
+                    app:tint="@color/ligh_medium_gray"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_10sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="35"
+                    android:textSize="@dimen/_13sdp"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:textColor="@color/ligh_medium_gray"
+                    android:fontFamily="@font/ubuntu_medium"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="идут"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_5sdp"
+                    android:textColor="@color/ligh_medium_gray"
+                    android:fontFamily="@font/ubuntu_medium"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

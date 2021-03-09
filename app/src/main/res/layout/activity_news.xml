@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Frgaments.Explorer.news.NewsActivity">
+
+    <LinearLayout
+        android:id="@+id/hat_home"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="@dimen/_20sdp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textMyExplorer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:gravity="center"
+                android:fontFamily="@font/ubuntu_bold"
+                android:includeFontPadding="false"
+                android:text="Новости"
+                android:textColor="?attr/text_color"
+                android:textSize="@dimen/_20sdp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="bottom|center"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_height="match_parent">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/news_list_news"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:backgroundTint="?attr/bg_table_shedule"
+                android:background="@drawable/bg_dialog"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_dialog"
+                    android:backgroundTint="@color/icon_true"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="новости"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:textColor="@color/ligh_medium_gray"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingTop="5dp"
+                        android:textSize="15dp"
+                        android:paddingBottom="5dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="объявления"
+                        android:fontFamily="@font/ubuntu_medium"
+                        android:textColor="@color/dark_gray_darker"
+                        android:paddingLeft="@dimen/_10sdp"
+                        android:paddingRight="@dimen/_10sdp"
+                        android:paddingTop="5dp"
+                        android:textSize="15dp"
+                        android:paddingBottom="5dp"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</LinearLayout>

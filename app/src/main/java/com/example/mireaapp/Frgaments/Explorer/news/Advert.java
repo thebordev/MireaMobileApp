@@ -2,17 +2,17 @@ package com.example.mireaapp.Frgaments.Explorer.news;
 
 import java.io.Serializable;
 
-public class News implements Serializable {
+public class Advert implements Serializable {
 
     private String title, description, dateTime, color;
     private int imageUrl;
 
-    public News(String title, String description, String dateTime, int imageUrl, String color) {
+    public Advert(String title, String description, String dateTime, String color, int imageUrl) {
         this.title = title;
         this.description = description;
         this.dateTime = dateTime;
-        this.imageUrl = imageUrl;
         this.color = color;
+        this.imageUrl = imageUrl;
     }
 
     public String getTitle() {
@@ -39,19 +39,19 @@ public class News implements Serializable {
         this.dateTime = dateTime;
     }
 
-    public int getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(int imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-
     public String getColor() {
         return color;
     }
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public int getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(int imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
