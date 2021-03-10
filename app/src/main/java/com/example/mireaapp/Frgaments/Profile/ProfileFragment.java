@@ -71,7 +71,6 @@ public class ProfileFragment extends Fragment {
 
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
                 bottomSheetDialog.setContentView(R.layout.layout_helper);
-                bottomSheetDialog.setCanceledOnTouchOutside(false);
 
                 linTelegram = bottomSheetDialog.findViewById(R.id.send_message_to_telegram);
                 linTelegram.setOnClickListener(new View.OnClickListener() {
@@ -99,7 +98,6 @@ public class ProfileFragment extends Fragment {
         });
 
     }
-
     private void gradientHatInit() {
         AnimationDrawable animationDrawable = (AnimationDrawable) gradientLayout.getBackground();
         animationDrawable.setEnterFadeDuration(10);
