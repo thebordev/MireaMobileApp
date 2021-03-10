@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/_12sdp"
     android:layout_marginEnd="@dimen/_12sdp"
-    android:layout_marginTop="@dimen/_12sdp"
+    android:layout_marginBottom="@dimen/_12sdp"
     app:cardCornerRadius="@dimen/_10sdp"
     android:layout_marginLeft="@dimen/_12sdp"
     android:orientation="vertical"

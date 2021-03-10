@@ -131,16 +131,11 @@ public class ExplorerFragment extends Fragment {
         newsRecyclerView.hasFixedSize();
         newsRecyclerView.setAdapter(newsAdapter);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_1, ""));
-                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_2, ""));
-                models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_3, ""));
+        models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_1, ""));
+        models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_2, ""));
+        models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_3, ""));
 
-                newsAdapter.notifyDataSetChanged();
-            }
-        }, 10000);
+        newsAdapter.notifyDataSetChanged();
 
 
 

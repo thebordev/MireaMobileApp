@@ -15,11 +15,7 @@ import com.example.mireaapp.R;
 
 import java.util.ArrayList;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link NewsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class NewsFragment extends Fragment {
     private RecyclerView newsRecyclerView;
     ArrayList<News> models = new ArrayList<>();
@@ -41,6 +37,13 @@ public class NewsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_news, container, false);
         newsRecyclerView = view.findViewById(R.id.news_list);
+
+        initNews();
+
+        return view;
+    }
+
+    private void initNews() {
         newsAdapter = new NewsAdapter(models, getContext());
         newsRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         newsRecyclerView.hasFixedSize();
@@ -52,7 +55,6 @@ public class NewsFragment extends Fragment {
         models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_3, ""));
 
         newsAdapter.notifyDataSetChanged();
-
-        return view;
     }
+
 }

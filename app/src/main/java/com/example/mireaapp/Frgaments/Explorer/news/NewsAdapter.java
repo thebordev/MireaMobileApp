@@ -30,9 +30,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     
     ArrayList<News> models = new ArrayList<>();
     Context context;
-    
-    boolean isShimmer = true;
-    int shimmerNumber = 5;
 
     public NewsAdapter(ArrayList<News> models, Context context) {
         this.models = models;
@@ -43,50 +40,36 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_news, parent, false);
+                .inflate(R.layout.item_news_page, parent, false);
         return new ViewHolder(view);
     }
 
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        
-        if (isShimmer) {
-            holder.shimmerFrameLayout.startShimmer();
-        } else {
-            holder.shimmerFrameLayout.stopShimmer();
-            holder.shimmerFrameLayout.setShimmer(null);
-            
-            holder.tvTitle.setBackground(null);
-            holder.tvTitle.setText(models.get(position).getTitle());
-            
-            holder.tvDateTime.setBackground(null);
-            holder.tvDateTime.setText(models.get(position).getDateTime());
-            
-            holder.imageView.setImageDrawable(context.getDrawable(R.drawable.banner_1));
-        }
+
+        holder.tvTitle.setText(models.get(position).getTitle());
+        holder.tvDateTime.setText(models.get(position).getDateTime());
+        holder.imageView.setImageResource(models.get(position).getImageUrl());
 
     }
 
     @Override
     public int getItemCount() {
-        return isShimmer?shimmerNumber:models.size();
+        return models.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        ShimmerFrameLayout shimmerFrameLayout;
         TextView tvTitle, tvDateTime;
         ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            shimmerFrameLayout = itemView.findViewById(R.id.shimmerNews);
-            tvTitle = itemView.findViewById(R.id.textTitle_news);
-            tvDateTime = itemView.findViewById(R.id.textDateTime_news);
-            imageView = itemView.findViewById(R.id.imageNote_news);
+            tvTitle = itemView.findViewById(R.id.textTitle_newsPage);
+            tvDateTime = itemView.findViewById(R.id.textDateTime_newsPage);
+            imageView = itemView.findViewById(R.id.imageNote_newsPage);
 
         }
     }

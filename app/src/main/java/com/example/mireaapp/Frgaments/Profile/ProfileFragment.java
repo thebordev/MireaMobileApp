@@ -1,9 +1,13 @@
-package com.example.mireaapp.Frgaments;
+package com.example.mireaapp.Frgaments.Profile;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,17 +16,19 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.mireaapp.Frgaments.Notes.CreateNote;
 import com.example.mireaapp.Frgaments.Schedule.Schedule;
 import com.example.mireaapp.Frgaments.Schedule.ScheduleDatabase;
 import com.example.mireaapp.R;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.io.IOException;
 import java.util.regex.Pattern;
@@ -35,6 +41,7 @@ import okhttp3.Response;
 
 public class ProfileFragment extends Fragment {
 
+    private LinearLayout gradientLayout, feedbackBtn;
     private SharedPreferences preferences;;
 
     @Override
@@ -47,26 +54,68 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        preferences = this.getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
-        view.findViewById(R.id.schange_group_button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showGroupSelectDialog();
-            }
-        });
-        setSelectedGroupToTextView(view);
+        gradientLayout = view.findViewById(R.id.gradientHat_profile);
+        feedbackBtn = view.findViewById(R.id.feedback_profile);
+
+        feedback(); //кнопка обратной связи
+        gradientHatInit(); // Анимация градиента в боксе профиля
+
         return view;
     }
 
+    private void feedback(){
+        feedbackBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LinearLayout linTelegram, linEmail;
+
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getActivity());
+                bottomSheetDialog.setContentView(R.layout.layout_helper);
+                bottomSheetDialog.setCanceledOnTouchOutside(false);
+
+                linTelegram = bottomSheetDialog.findViewById(R.id.send_message_to_telegram);
+                linTelegram.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent telegram = new Intent(Intent.ACTION_VIEW, Uri.parse("https://t.me/thebordevs"));
+                        startActivity(telegram);
+                    }
+                });
+
+                linEmail = bottomSheetDialog.findViewById(R.id.send_message_to_mail);
+                linEmail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent mail = new Intent(Intent.ACTION_SEND);
+                        mail.setType("plain/text");
+                        mail.putExtra(Intent.EXTRA_EMAIL, new String[]{"theboringdevelopers@gmail.com"});
+                        mail.putExtra(Intent.EXTRA_SUBJECT, "MireaApp");
+                        startActivity(Intent.createChooser(mail, ""));
+                    }
+                });
+
+                bottomSheetDialog.show();
+            }
+        });
+
+    }
+
+    private void gradientHatInit() {
+        AnimationDrawable animationDrawable = (AnimationDrawable) gradientLayout.getBackground();
+        animationDrawable.setEnterFadeDuration(10);
+        animationDrawable.setExitFadeDuration(5000);
+        animationDrawable.start();
+    }
+
     private void setSelectedGroupToTextView(View view){
-        TextView currentGroupTv = (TextView)view.findViewById(R.id.tv_current_group);
-        String group = preferences.getString("selected_group", "");
-        if(group.equals("")){
-            currentGroupTv.setText("не установлена");
-        }
-        else {
-            currentGroupTv.setText(group);
-        }
+//        TextView currentGroupTv = (TextView)view.findViewById(R.id.tv_current_group);
+//        String group = preferences.getString("selected_group", "");
+//        if(group.equals("")){
+//            currentGroupTv.setText("не установлена");
+//        }
+//        else {
+//            currentGroupTv.setText(group);
+//        }
     }
 
     private void showGroupSelectDialog(){
