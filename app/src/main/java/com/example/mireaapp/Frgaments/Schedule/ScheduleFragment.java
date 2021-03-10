@@ -10,10 +10,7 @@ import android.os.Bundle;
 
 import androidx.constraintlayout.widget.Constraints;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
 
 
@@ -27,7 +24,6 @@ import android.widget.TextView;
 
 import com.example.mireaapp.R;
 import com.example.mireaapp.Util.CalendarManager;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -36,17 +32,12 @@ import java.util.ArrayList;
 
 public class ScheduleFragment extends Fragment {
 
-    NavHostFragment navHostFragment;
-    BottomNavigationView bottomNavigationView;
     private View currentView;
     private SchedulePageAdapter pagerAdapter;
     private ViewPager2 schedulePager;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     //Создаем список вьюх которые будут создаваться
-    private RecyclerView rvAllScheduleItems;
-
-    private ScheduleItemsAdapter itemsAdapter;
-    private ArrayList<ScheduleItem> scheduleItems;
     private ArrayList<LinearLayout> dayButtons;
 
     private int selectedWeek = 0;
@@ -60,6 +51,8 @@ public class ScheduleFragment extends Fragment {
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_schedule, container, false);
         currentView = view;
+
+        swipeRefreshLayout = view.findViewById(R.id.refreshLayout_schedule);
         preferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE );
 
         try {
@@ -86,10 +79,23 @@ public class ScheduleFragment extends Fragment {
         }
         schedulePager.setCurrentItem(selectedDayOfWeek);
         setSelectedDayButton(selectedDayOfWeek);
+        refreshLayer();
         return view;
     }
 
-    void setSelectedDayButton(int dayOfWeek){
+    private void refreshLayer() {
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                createSchedulePages();
+                setSelectedDayButton(selectedDayOfWeek);
+                initializeDayButtons();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+    }
+
+    private void setSelectedDayButton(int dayOfWeek){
         for (int i = 0; i < 6; i++) {
             if (i == dayOfWeek) {
                 dayButtons.get(dayOfWeek).getBackground().setColorFilter(Color.parseColor("#0881ed"), PorterDuff.Mode.SRC_ATOP);
@@ -112,7 +118,7 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    void initializeDayButtons(){
+    private void initializeDayButtons(){
         dayButtons = new ArrayList<LinearLayout>();
 
         dayButtons.add(currentView.findViewById(R.id.ll_date_0));
@@ -143,7 +149,7 @@ public class ScheduleFragment extends Fragment {
         }
     }
 
-    void createWeekNumberSelectorDialog(){
+    private void createWeekNumberSelectorDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         View calendarView = getLayoutInflater().inflate(R.layout.layout_schedule_weeks, (ViewGroup) getView().findViewById(R.id.schedule_week_selector_container));
 

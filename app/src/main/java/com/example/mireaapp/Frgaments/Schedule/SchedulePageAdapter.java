@@ -76,7 +76,7 @@ public class SchedulePageAdapter extends RecyclerView.Adapter<SchedulePageAdapte
 
                 rvAllScheduleItems = (RecyclerView) currentView.findViewById(R.id.rv_all_schedul_items);
 
-                itemsAdapter = new ScheduleItemsAdapter(scheduleItems.size(), scheduleItems);
+                itemsAdapter = new ScheduleItemsAdapter(scheduleItems.size(), scheduleItems, false);
                 rvAllScheduleItems.setAdapter(itemsAdapter);
             } catch (JSONException e) {
                 e.printStackTrace();

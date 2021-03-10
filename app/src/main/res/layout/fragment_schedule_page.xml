@@ -4,16 +4,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/notes_home"
         tools:visibility="visible">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_all_schedul_items"
@@ -23,7 +18,7 @@
                 android:layout_marginLeft="@dimen/_5sdp"
                 tools:listitem="@layout/layout_schedule_item"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
-        </ScrollView>
+
     </RelativeLayout>
 
 </FrameLayout>

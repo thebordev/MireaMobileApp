@@ -7,313 +7,322 @@
     tools:context=".Frgaments.Schedule.ScheduleFragment"
     android:background="?attr/background_color">
 
-    <RelativeLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/refreshLayout_schedule">
+
         <RelativeLayout
-            android:id="@+id/hat_home"
             android:layout_width="match_parent"
-            android:layout_height="60dp">
-
-            <LinearLayout
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/hat_home"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="@dimen/_20sdp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textMyShedule"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:fontFamily="@font/ubuntu_bold"
-                    android:includeFontPadding="false"
-                    android:text="Моё Расписание"
-                    android:textColor="?attr/text_color"
-                    android:textSize="@dimen/_20sdp"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                android:layout_height="60dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    android:gravity="right"
-                    android:layout_marginRight="@dimen/_5sdp">
-
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/schedule_settings_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:listitem="@layout/number_group_item"
-                        />
-
-
-                </LinearLayout>
-
-                
-                
-
-            </LinearLayout>
-
-        </RelativeLayout>
-        <LinearLayout
-            android:id="@+id/notes_home"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/corners_hat_shedule"
-            android:backgroundTint="?attr/bg_table_shedule"
-            android:layout_margin="10dp"
-            android:layout_below="@+id/hat_home"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="5dp"
-                android:orientation="horizontal">
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_schedule_current_week"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="30 неделя (четная)"
-                        android:textColor="?attr/text_color"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_schedule_current_date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Понедельник, 9 января"
-                        android:textColor="?attr/text_color" />
-                </LinearLayout>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:paddingTop="@dimen/_20sdp"
                     android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/schedule_calendar_button"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:src="@drawable/ic_baseline_calendar_today_24"
-                        android:tint="?attr/text_color"
-                        android:background="@android:color/transparent"/>
-                </RelativeLayout>
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textMyShedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_12sdp"
+                        android:fontFamily="@font/ubuntu_bold"
+                        android:includeFontPadding="false"
+                        android:text="Моё Расписание"
+                        android:textColor="?attr/text_color"
+                        android:textSize="@dimen/_20sdp"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="right"
+                        android:layout_marginRight="@dimen/_5sdp">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/schedule_settings_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:listitem="@layout/number_group_item"
+                            />
+
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
             <LinearLayout
+                android:id="@+id/notes_home"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="6"
-                android:layout_margin="10dp">
+                android:background="@drawable/corners_hat_shedule"
+                android:backgroundTint="?attr/bg_table_shedule"
+                android:layout_margin="10dp"
+                android:layout_below="@+id/hat_home"
+                android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@+id/ll_date_0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_false"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="ПН"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_date_0"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        android:text="11"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_schedule_current_week"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="30 неделя (четная)"
+                            android:textColor="?attr/text_color"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_schedule_current_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Понедельник, 9 января"
+                            android:textColor="?attr/text_color" />
+                    </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/schedule_calendar_button"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/ic_baseline_calendar_today_24"
+                            android:tint="?attr/text_color"
+                            android:background="@drawable/bg_dialog"
+                            android:backgroundTint="@android:color/transparent"/>
+                    </RelativeLayout>
                 </LinearLayout>
-
                 <LinearLayout
-                    android:id="@+id/ll_date_1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_false"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:weightSum="6"
+                    android:layout_margin="10dp">
 
-                    <TextView
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:id="@+id/ll_date_0"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="ВТ"
-                        android:textStyle="bold" />
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corners_hat_shedule"
+                        android:backgroundTint="@color/icon_false"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_date_1"
-                        android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="ПН"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_date_0"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:text="11"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_date_1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        android:text="12"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corners_hat_shedule"
+                        android:backgroundTint="@color/icon_false"
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_date_2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_true"
-                    android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="ВТ"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/tv_date_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:text="12"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_date_2"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:textColor="@android:color/white"
-                        android:text="СР"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corners_hat_shedule"
+                        android:backgroundTint="@color/icon_true"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_date_2"
-                        android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:textColor="@android:color/white"
+                            android:text="СР"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_date_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:textColor="@android:color/white"
+                            android:gravity="center"
+                            android:text="13"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_date_3"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textColor="@android:color/white"
-                        android:gravity="center"
-                        android:text="13"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corners_hat_shedule"
+                        android:backgroundTint="@color/icon_false"
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_date_3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_false"
-                    android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="ЧТ"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/tv_date_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:text="14"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_date_4"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="ЧТ"
-                        android:textStyle="bold" />
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corners_hat_shedule"
+                        android:backgroundTint="@color/icon_false"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_date_3"
-                        android:layout_width="match_parent"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="ПТ"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_date_4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:text="15"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_date_5"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        android:text="14"
-                        android:textStyle="bold" />
-                </LinearLayout>
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/corners_hat_shedule"
+                        android:backgroundTint="@color/icon_false"
+                        android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_date_4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_false"
-                    android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center"
+                            android:text="СБ"
+                            android:backgroundTint="#9a9898"
+                            android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="ПТ"
-                        android:textStyle="bold" />
+                        <TextView
+                            android:id="@+id/tv_date_5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:text="16"
+                            android:textStyle="bold" />
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_date_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        android:text="15"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_date_5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/corners_hat_shedule"
-                    android:backgroundTint="@color/icon_false"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:gravity="center"
-                        android:text="СБ"
-                        android:backgroundTint="#9a9898"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tv_date_5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:gravity="center"
-                        android:text="16"
-                        android:textStyle="bold" />
                 </LinearLayout>
 
             </LinearLayout>
 
-        </LinearLayout>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/schedule_pager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/notes_home"
+                tools:visibility="visible">
+            </androidx.viewpager2.widget.ViewPager2>
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/schedule_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/notes_home"
-            tools:visibility="visible">
-        </androidx.viewpager2.widget.ViewPager2>
+        </RelativeLayout>
 
-    </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
 </FrameLayout>

@@ -7,6 +7,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,23 +16,31 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mireaapp.R;
+import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdapter.ScheduleItemsViewHolder> {
+
     private int itemsCount;
     private static int viewHolderCount;
     private List<ScheduleItem> scheduleItemsList;
+    Context context;
 
-    public ScheduleItemsAdapter(int numbersOfItems, List<ScheduleItem> scheduleItemsList) {
+    boolean isShimmer = true;
+    int ShimmerNumber = 5;
+
+    public ScheduleItemsAdapter(int numbersOfItems, List<ScheduleItem> scheduleItemsList, boolean isShimmer) {
         this.itemsCount = numbersOfItems;
         this.viewHolderCount = 0;
         this.scheduleItemsList = scheduleItemsList;
+        this.isShimmer = isShimmer;
     }
 
     @Override
     public ScheduleItemsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
+        context = parent.getContext();
         int scheduleItemsLayoutId = R.layout.layout_schedule_item;
 
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -49,12 +58,39 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
     public void onBindViewHolder(ScheduleItemsViewHolder holder, int position) {
         ScheduleItem scheduleItem = scheduleItemsList.get(position);
 
-        holder.titleTextView.setText(scheduleItem.getScheduleItemName());
-        holder.cabinetTextView.setText(scheduleItem.getCabinet().toUpperCase());
-        holder.timeStartTextView.setText(scheduleItem.getTimeStart());
-        holder.timeEndTextView.setText(scheduleItem.getTimeEnd());
-        holder.typeTextView.setText(scheduleItem.getType());
-        holder.teacherTextView.setText(scheduleItem.getTeacher());
+
+        if (isShimmer) {
+            holder.shimmerFrameLayout.startShimmer();
+        } else {
+            holder.shimmerFrameLayout.stopShimmer();
+            holder.shimmerFrameLayout.setShimmer(null);
+
+            //holder.containerAnim.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+
+            holder.titleTextView.setBackground(null);
+            holder.titleTextView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+            holder.titleTextView.setText(scheduleItem.getScheduleItemName());
+
+            holder.cabinetTextView.setBackground(null);
+            holder.cabinetTextView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+            holder.cabinetTextView.setText(scheduleItem.getCabinet().toUpperCase());
+
+            holder.timeStartTextView.setBackground(null);
+            holder.timeStartTextView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+            holder.timeStartTextView.setText(scheduleItem.getTimeStart());
+
+            holder.timeEndTextView.setBackground(null);
+            holder.timeEndTextView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+            holder.timeEndTextView.setText(scheduleItem.getTimeEnd());
+
+            holder.typeTextView.setBackground(null);
+            holder.typeTextView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+            holder.typeTextView.setText(scheduleItem.getType());
+
+            holder.teacherTextView.setBackground(null);
+            holder.teacherTextView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+            holder.teacherTextView.setText(scheduleItem.getTeacher());
+        }
 
         if (scheduleItem.getScheduleItemName() == "null"){
          holder.itemCard.setVisibility(View.INVISIBLE);
@@ -85,10 +121,11 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
 
     @Override
     public int getItemCount() {
-        return itemsCount;
+        return isShimmer?ShimmerNumber:itemsCount;
     }
 
     class ScheduleItemsViewHolder extends RecyclerView.ViewHolder{
+
         private TextView cabinetTextView;
         private TextView typeTextView;
         private TextView titleTextView;
@@ -97,6 +134,7 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
         private TextView teacherTextView;
         private FrameLayout leftBar;
         private LinearLayout itemCard;
+        private ShimmerFrameLayout shimmerFrameLayout;
 
         public ScheduleItemsViewHolder(View itemView){
             super(itemView);
@@ -108,6 +146,7 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
             leftBar = itemView.findViewById(R.id.fl_schedule_item_left_bar);
             teacherTextView = itemView.findViewById(R.id.tv_schedule_item_teacher);
             itemCard = itemView.findViewById(R.id.schedule_item_card);
+            shimmerFrameLayout = itemView.findViewById(R.id.shimmerFrameLayout_schedule);
         }
     }
 }

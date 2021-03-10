@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorShimmer">#E4E2E2</color>
     <color name="colorAccent">#5271FF</color>
     <color name="icon_false">#cbcbcb</color>
     <color name="icon_true">#0881ed</color>
