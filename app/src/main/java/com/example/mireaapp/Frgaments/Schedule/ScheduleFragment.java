@@ -243,7 +243,7 @@ public class ScheduleFragment extends Fragment {
                 }
             });
             // инициализация списка расписания для текущей недели
-            schedulePager.setOffscreenPageLimit(6);
+            schedulePager.setOffscreenPageLimit(1);
             schedulePager.setAdapter(pagerAdapter);
         }
     }

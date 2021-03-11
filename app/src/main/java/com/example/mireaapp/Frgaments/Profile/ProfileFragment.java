@@ -21,6 +21,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mireaapp.Frgaments.Notes.CreateNote;
@@ -41,8 +42,8 @@ import okhttp3.Response;
 
 public class ProfileFragment extends Fragment {
 
-    private LinearLayout gradientLayout, feedbackBtn;
-    private SharedPreferences preferences;;
+    private LinearLayout gradientLayout, feedbackBtn, groupBtn;
+    private SharedPreferences preferences;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,11 +57,24 @@ public class ProfileFragment extends Fragment {
 
         gradientLayout = view.findViewById(R.id.gradientHat_profile);
         feedbackBtn = view.findViewById(R.id.feedback_profile);
+        groupBtn = view.findViewById(R.id.group_select_button);
+        preferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE );
 
         feedback(); //кнопка обратной связи
+        groupSelect(view); //кнопка выбора группы
         gradientHatInit(); // Анимация градиента в боксе профиля
 
         return view;
+    }
+
+    private void groupSelect(View view) {
+        setSelectedGroupToTextView(view);
+        groupBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showGroupSelectDialog();
+            }
+        });
     }
 
     private void feedback(){
@@ -106,14 +120,14 @@ public class ProfileFragment extends Fragment {
     }
 
     private void setSelectedGroupToTextView(View view){
-//        TextView currentGroupTv = (TextView)view.findViewById(R.id.tv_current_group);
-//        String group = preferences.getString("selected_group", "");
-//        if(group.equals("")){
-//            currentGroupTv.setText("не установлена");
-//        }
-//        else {
-//            currentGroupTv.setText(group);
-//        }
+        TextView currentGroupTv = (TextView)view.findViewById(R.id.textGroup);
+        String group = preferences.getString("selected_group", "");
+        if(group.equals("")){
+            currentGroupTv.setText("не установлена");
+        }
+        else {
+            currentGroupTv.setText(group);
+        }
     }
 
     private void showGroupSelectDialog(){
@@ -205,9 +219,9 @@ public class ProfileFragment extends Fragment {
                             Toast.makeText(getActivity(), "Проверьте правильность введённой группы. Пример: ИКБО-25-20", Toast.LENGTH_SHORT).show();
                         } else {
                             downloadScheduleData(inputGroup.getText().toString());
-                            if(!preferences.getString("selected_group", "").equals("")) {
-                                //initializeScheduleData(currentView, CalendarManager.getCurrentWeek(), CalendarManager.getCurrentDayOfWeek(), preferences.getString("selected_group", ""));
-                            }
+//                            if(!preferences.getString("selected_group", "").equals("")) {
+//                                //initializeScheduleData(currentView, CalendarManager.getCurrentWeek(), CalendarManager.getCurrentDayOfWeek(), preferences.getString("selected_group", ""));
+//                            }
                             scheduleSettingsDialog.dismiss();
                         }
                     }
