@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -25,6 +27,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mireaapp.Frgaments.Notes.CreateNote;
+import com.example.mireaapp.Frgaments.Profile.teacher.Teacher;
+import com.example.mireaapp.Frgaments.Profile.teacher.TeacherAdapter;
 import com.example.mireaapp.Frgaments.Schedule.Schedule;
 import com.example.mireaapp.Frgaments.Schedule.ScheduleDatabase;
 import com.example.mireaapp.R;
@@ -32,6 +36,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import okhttp3.Call;
@@ -42,8 +47,11 @@ import okhttp3.Response;
 
 public class ProfileFragment extends Fragment {
 
-    private LinearLayout gradientLayout, feedbackBtn, groupBtn;
+    private LinearLayout gradientLayout, feedbackBtn, groupBtn, teacherBtn;
     private SharedPreferences preferences;
+
+    private TeacherAdapter teacherAdapter;
+    ArrayList<Teacher> models = new ArrayList<>();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -56,11 +64,15 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
 
         gradientLayout = view.findViewById(R.id.gradientHat_profile);
+
         feedbackBtn = view.findViewById(R.id.feedback_profile);
+        teacherBtn = view.findViewById(R.id.find_teacherBtn);
         groupBtn = view.findViewById(R.id.group_select_button);
+
         preferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE );
 
         feedback(); //кнопка обратной связи
+        teachers(); //кнопка найти преподавателя
         groupSelect(view); //кнопка выбора группы
         gradientHatInit(); // Анимация градиента в боксе профиля
 
@@ -73,6 +85,35 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 showGroupSelectDialog();
+            }
+        });
+    }
+
+    private void teachers() {
+        teacherBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RecyclerView rvTeachers;
+                teacherAdapter = new TeacherAdapter(models, getContext());
+
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getContext());
+                bottomSheetDialog.setContentView(R.layout.layout_find_teacher);
+
+                rvTeachers = bottomSheetDialog.findViewById(R.id.teacherList);
+
+                rvTeachers.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+                rvTeachers.hasFixedSize();
+                rvTeachers.setAdapter(teacherAdapter);
+
+                models.add(new Teacher("Зуев А.С.", "доцент", "9:00", "10:30", "Объектно-ориентированное программирование", "Д"));
+                models.add(new Teacher("Зуев А.С.", "доцент", "9:00", "10:30", "Объектно-ориентированное программирование", "Д"));
+                models.add(new Teacher("Зуев А.С.", "доцент", "9:00", "10:30", "Объектно-ориентированное программирование", "Д"));
+                models.add(new Teacher("Зуев А.С.", "доцент", "9:00", "10:30", "Объектно-ориентированное программирование", "Д"));
+                models.add(new Teacher("Зуев А.С.", "доцент", "9:00", "10:30", "Объектно-ориентированное программирование", "Д"));
+                models.add(new Teacher("Зуев А.С.", "доцент", "9:00", "10:30", "Объектно-ориентированное программирование", "Д"));
+
+                teacherAdapter.notifyDataSetChanged();
+                bottomSheetDialog.show();
             }
         });
     }
@@ -118,7 +159,6 @@ public class ProfileFragment extends Fragment {
         animationDrawable.setExitFadeDuration(5000);
         animationDrawable.start();
     }
-
     private void setSelectedGroupToTextView(View view){
         TextView currentGroupTv = (TextView)view.findViewById(R.id.textGroup);
         String group = preferences.getString("selected_group", "");
@@ -129,7 +169,6 @@ public class ProfileFragment extends Fragment {
             currentGroupTv.setText(group);
         }
     }
-
     private void showGroupSelectDialog(){
         // диалог выбора группы
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -231,8 +270,7 @@ public class ProfileFragment extends Fragment {
 
         scheduleSettingsDialog.show();
     }
-
-    void downloadScheduleData(String group){
+    private void downloadScheduleData(String group){
         Request request = new Request.Builder().url("https://mirea.ninja:500/schedule/all/" + group.toUpperCase()).build();
 
         SharedPreferences preferences = this.getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE );

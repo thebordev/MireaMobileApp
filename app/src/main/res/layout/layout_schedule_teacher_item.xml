@@ -60,7 +60,7 @@
                     android:layout_marginLeft="10dp">
 
                     <TextView
-                        android:id="@+id/tv_schedule_item_time_start"
+                        android:id="@+id/tv_teacher_item_time_start"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -71,7 +71,7 @@
                         android:textColor="@color/dark_text_color_primary"/>
 
                     <TextView
-                        android:id="@+id/tv_schedule_item_time_end"
+                        android:id="@+id/tv_teacher_item_time_end"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -135,6 +135,7 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/teacherName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/_10sdp"
@@ -143,6 +144,7 @@
                             android:fontFamily="@font/ubuntu_medium"/>
 
                         <TextView
+                            android:id="@+id/teacherPost"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="доцент"
@@ -154,6 +156,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
+                            android:id="@+id/typeItem"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center_vertical|right"
@@ -166,6 +169,7 @@
 
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/nameItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_10sdp"

@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@android:color/transparent"
     android:backgroundTint="?attr/background_color"
     app:cardCornerRadius="@dimen/_10sdp"
@@ -70,6 +70,7 @@
                     android:layout_marginLeft="@dimen/_12sdp" />
             </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/teacherList"
                 android:layout_width="match_parent"
                 tools:listitem="@layout/layout_schedule_teacher_item"
                 android:layout_marginTop="@dimen/_10sdp"
