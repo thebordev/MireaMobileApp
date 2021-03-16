@@ -190,6 +190,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="ИКБО-25-20"
+                    android:textAllCaps="true"
                     android:textColor="@color/dark_gray_darker"
                     android:gravity="center"
                     android:fontFamily="@font/ubuntu_medium"

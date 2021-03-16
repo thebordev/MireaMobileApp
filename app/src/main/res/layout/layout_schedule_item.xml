@@ -114,8 +114,7 @@
                             android:id="@+id/fl_schedule_item_left_bar"
                             android:layout_width="10dp"
                             android:layout_height="match_parent"
-                            android:backgroundTint="@color/icon_true"
-                            android:background="@drawable/schedule_item_left_bar"/>
+                            android:background="@drawable/gradient_schedule_animation_1"/>
 
                         <LinearLayout
                             android:layout_width="match_parent"

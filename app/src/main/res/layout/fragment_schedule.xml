@@ -125,16 +125,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="6"
-                    android:layout_margin="10dp">
+                    android:layout_margin="@dimen/_10sdp">
 
                     <LinearLayout
                         android:id="@+id/ll_date_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
+                        android:layout_marginLeft="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/corners_hat_shedule"
-                        android:backgroundTint="@color/icon_false"
                         android:orientation="vertical">
 
                         <TextView
@@ -164,7 +164,6 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/corners_hat_shedule"
-                        android:backgroundTint="@color/icon_false"
                         android:orientation="vertical">
 
                         <TextView
@@ -193,8 +192,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
-                        android:background="@drawable/corners_hat_shedule"
-                        android:backgroundTint="@color/icon_true"
+                        android:background="@drawable/gradient_animation_schedule"
                         android:orientation="vertical">
 
                         <TextView
@@ -205,6 +203,7 @@
                             android:textColor="@android:color/white"
                             android:text="СР"
                             android:textStyle="bold" />
+
 
                         <TextView
                             android:id="@+id/tv_date_2"
@@ -226,7 +225,6 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/corners_hat_shedule"
-                        android:backgroundTint="@color/icon_false"
                         android:orientation="vertical">
 
                         <TextView
@@ -256,7 +254,6 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/corners_hat_shedule"
-                        android:backgroundTint="@color/icon_false"
                         android:orientation="vertical">
 
                         <TextView
@@ -286,7 +283,6 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="1"
                         android:background="@drawable/corners_hat_shedule"
-                        android:backgroundTint="@color/icon_false"
                         android:orientation="vertical">
 
                         <TextView
@@ -315,10 +311,11 @@
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/schedule_pager"
+                android:layout_below="@+id/notes_home"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/notes_home"
                 tools:visibility="visible">
+
             </androidx.viewpager2.widget.ViewPager2>
 
         </RelativeLayout>

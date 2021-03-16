@@ -5,10 +5,12 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.constraintlayout.widget.Constraints;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import androidx.viewpager2.widget.ViewPager2;
@@ -98,7 +100,12 @@ public class ScheduleFragment extends Fragment {
     private void setSelectedDayButton(int dayOfWeek){
         for (int i = 0; i < 6; i++) {
             if (i == dayOfWeek) {
-                dayButtons.get(dayOfWeek).getBackground().setColorFilter(Color.parseColor("#0881ed"), PorterDuff.Mode.SRC_ATOP);
+                dayButtons.get(dayOfWeek).setBackground(ContextCompat.getDrawable(dayButtons.get(dayOfWeek).getContext(), R.drawable.gradient_animation_schedule));
+                AnimationDrawable animationDrawable = (AnimationDrawable) dayButtons.get(dayOfWeek).getBackground();
+                animationDrawable.setEnterFadeDuration(10);
+                animationDrawable.setExitFadeDuration(5000);
+                animationDrawable.start();
+                // dayButtons.get(dayOfWeek).getBackground().setColorFilter(Color.parseColor("#0881ed"), PorterDuff.Mode.SRC_ATOP);
 
                 for (int j = 0; j < dayButtons.get(dayOfWeek).getChildCount(); j++) {
                     View v = dayButtons.get(dayOfWeek).getChildAt(j);
@@ -107,6 +114,7 @@ public class ScheduleFragment extends Fragment {
                     }
                 }
             } else {
+                dayButtons.get(i).setBackground(ContextCompat.getDrawable(dayButtons.get(dayOfWeek).getContext(), R.drawable.corners_hat_shedule));
                 dayButtons.get(i).getBackground().setColorFilter(Color.parseColor("#9a9898"), PorterDuff.Mode.SRC_ATOP);
                 for (int j = 0; j < dayButtons.get(dayOfWeek).getChildCount(); j++) {
                     View v = dayButtons.get(i).getChildAt(j);

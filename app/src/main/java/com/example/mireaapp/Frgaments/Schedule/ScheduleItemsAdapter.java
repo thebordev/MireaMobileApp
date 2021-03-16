@@ -3,6 +3,7 @@ package com.example.mireaapp.Frgaments.Schedule;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -108,11 +109,26 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
             }
 
             if (scheduleItem.getType().equals("Практика")) {
-                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_practice), PorterDuff.Mode.SRC_ATOP);
+                holder.leftBar.setBackground(ContextCompat.getDrawable(holder.leftBar.getContext(), R.drawable.gradient_schedule_animation_1));
+                AnimationDrawable animationDrawable = (AnimationDrawable) holder.leftBar.getBackground();
+                animationDrawable.setEnterFadeDuration(10);
+                animationDrawable.setExitFadeDuration(5000);
+                animationDrawable.start();
+                // holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_practice), PorterDuff.Mode.SRC_ATOP);
             } else if (scheduleItem.getType().equals("Лекция")) {
-                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_lecture), PorterDuff.Mode.SRC_ATOP);
+                holder.leftBar.setBackground(ContextCompat.getDrawable(holder.leftBar.getContext(), R.drawable.gradient_schedule_animation_2));
+                AnimationDrawable animationDrawable = (AnimationDrawable) holder.leftBar.getBackground();
+                animationDrawable.setEnterFadeDuration(10);
+                animationDrawable.setExitFadeDuration(5000);
+                animationDrawable.start();
+                // holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_lecture), PorterDuff.Mode.SRC_ATOP);
             } else if (scheduleItem.getType().equals("Лабораторная")) {
-                holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_lab), PorterDuff.Mode.SRC_ATOP);
+                holder.leftBar.setBackground(ContextCompat.getDrawable(holder.leftBar.getContext(), R.drawable.gradient_schedule_animation_3));
+                AnimationDrawable animationDrawable = (AnimationDrawable) holder.leftBar.getBackground();
+                animationDrawable.setEnterFadeDuration(10);
+                animationDrawable.setExitFadeDuration(5000);
+                animationDrawable.start();
+                // holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_schedule_left_bar_lab), PorterDuff.Mode.SRC_ATOP);
             } else {
                 holder.leftBar.getBackground().setColorFilter(ContextCompat.getColor(holder.leftBar.getContext(), R.color.dark_icon_tint_color_bg), PorterDuff.Mode.SRC_ATOP);
             }
