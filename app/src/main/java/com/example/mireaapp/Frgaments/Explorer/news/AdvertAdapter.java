@@ -53,10 +53,10 @@ public class AdvertAdapter extends RecyclerView.Adapter<AdvertAdapter.ViewHolder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            tvTittle = itemView.findViewById(R.id.textTitle_newsPage);
-            tvDateTime = itemView.findViewById(R.id.textDateTime_newsPage);
-            tvDescription = itemView.findViewById(R.id.textDescription_newsPage);
-            imageView = itemView.findViewById(R.id.imageNote_newsPage);
+//            tvTittle = itemView.findViewById(R.id.textTitle_newsPage);
+//            tvDateTime = itemView.findViewById(R.id.textDateTime_newsPage);
+//            tvDescription = itemView.findViewById(R.id.textDescription_newsPage);
+//            imageView = itemView.findViewById(R.id.imageNote_newsPage);
         }
     }
 }
