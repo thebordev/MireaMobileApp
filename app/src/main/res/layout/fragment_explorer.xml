@@ -171,7 +171,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/_5sdp"
-                        android:text="Работа"
+                        android:text="Курсы"
                         android:singleLine="true"
                         android:autoSizeTextType="uniform"
                         android:fontFamily="@font/ubuntu_medium"
@@ -312,90 +312,10 @@
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/news_list"
+                    tools:listitem="@layout/item_news"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
             </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_10sdp"
-                android:layout_marginTop="@dimen/_10sdp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="@dimen/_5sdp"
-                    android:orientation="horizontal">
-
-                    <View
-                        android:layout_width="@dimen/_4sdp"
-                        android:layout_height="@dimen/_20sdp"
-                        android:layout_gravity="center_vertical"
-                        android:background="@drawable/bg_dialog"
-                        android:backgroundTint="@color/icon_true"
-                        android:layout_marginLeft="@dimen/_10sdp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="ПРОЕКТЫ"
-                        android:gravity="center_vertical"
-                        android:layout_marginLeft="@dimen/_5sdp"
-                        android:fontFamily="@font/ubuntu_bold"
-                        android:textColor="?attr/text_color"
-                        android:textSize="18dp"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:backgroundTint="?attr/bg_table_shedule"
-                            android:padding="@dimen/_5sdp"
-                            android:gravity="center_vertical"
-                            android:background="@drawable/bg_dialog"
-                            android:orientation="horizontal">
-
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="ещё"
-                                android:gravity="center_vertical"
-                                android:layout_marginLeft="@dimen/_5sdp"
-                                android:layout_marginRight="@dimen/_1sdp"
-                                android:fontFamily="@font/ubuntu_medium"
-                                android:textColor="?attr/text_color"/>
-
-                            <ImageView
-                                android:layout_width="@dimen/_12sdp"
-                                android:layout_height="@dimen/_12sdp"
-                                android:layout_gravity="center_vertical"
-                                android:layout_marginTop="2dp"
-                                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                                android:background="@drawable/bg_profile_icon"
-                                android:backgroundTint="?attr/bg_table_shedule"/>
-
-
-                        </LinearLayout>
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/projects_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
-
-
 </FrameLayout>

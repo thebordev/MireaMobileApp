@@ -49,10 +49,10 @@ public class NewsFragment extends Fragment {
         newsRecyclerView.hasFixedSize();
         newsRecyclerView.setAdapter(newsAdapter);
 
+        models.add(new News("Открыт приём заявок на обучение по программам академического обмена в Национальном университете Ян Мин Цзяо Дун (Тайвань)", "Fasgnenjfk", "Май 13, 2020", "", R.drawable.banner_1, R.drawable.mosit));
+        models.add(new News("Примите участие в масштабном опросе-исследовании РТУ МИРЭА «Я в теме!»", "Fasgnenjfk", "Май 13, 2020", "", R.drawable.banner_2, R.drawable.mosit));
+        models.add(new News("Открыт приём научных докладов на V Международную научно-практическую конференцию «Радиоинфоком – 2021»\n", "Fasgnenjfk", "Май 13, 2020", "", R.drawable.banner_3, R.drawable.mosit));
 
-        models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_1, ""));
-        models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_2, ""));
-        models.add(new News("test", "Fasgnenjfk", "Май 13, 2020", R.drawable.banner_3, ""));
 
         newsAdapter.notifyDataSetChanged();
     }

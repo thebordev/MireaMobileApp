@@ -1,4 +1,4 @@
-package com.example.mireaapp.Frgaments.Explorer.news;
+package com.example.mireaapp.Frgaments.Explorer.news.advert;
 
 import java.io.Serializable;
 

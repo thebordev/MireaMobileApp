@@ -43,20 +43,28 @@ public class NewsActivity extends AppCompatActivity {
         buttonNewsText = findViewById(R.id.button_news_text);
         buttonAnnounceText = findViewById(R.id.button_announce_text);
 
+        btnNews();
+        btnAnnounce();
+        initNewsList();
+    }
+
+    private void btnNews() {
         buttonNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 newsList.setCurrentItem(0);
             }
         });
-
+    }
+    private void btnAnnounce() {
         buttonAnnounce.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 newsList.setCurrentItem(1);
             }
         });
-
+    }
+    private void initNewsList() {
         newsList.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

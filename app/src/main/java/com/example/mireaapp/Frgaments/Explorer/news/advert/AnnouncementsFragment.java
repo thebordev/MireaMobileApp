@@ -1,4 +1,4 @@
-package com.example.mireaapp.Frgaments.Explorer.news;
+package com.example.mireaapp.Frgaments.Explorer.news.advert;
 
 import android.os.Bundle;
 
@@ -37,7 +37,7 @@ public class AnnouncementsFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_announcements, container, false);
         announceRecyclerView = view.findViewById(R.id.announce_list);
 
-        initAnnounce();
+        //initAnnounce();
 
         return view;
     }

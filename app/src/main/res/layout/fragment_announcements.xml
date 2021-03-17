@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Frgaments.Explorer.news.AnnouncementsFragment">
+    tools:context=".Frgaments.Explorer.news.advert.AnnouncementsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/announce_list"
