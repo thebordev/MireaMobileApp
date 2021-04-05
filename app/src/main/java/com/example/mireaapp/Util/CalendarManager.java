@@ -27,6 +27,32 @@ public class CalendarManager {
         return dayOfWeek;
     }
 
+    public static String getEnTextDayOfWeek(int dayOfWeek){
+        String day = "monday";
+        switch (dayOfWeek){
+            case 0:
+                day = "monday";
+                break;
+            case 1:
+                day = "tuesday";
+                break;
+            case 2:
+                day = "wednesday";
+                break;
+            case 3:
+                day = "thursday";
+                break;
+            case 4:
+                day = "friday";
+                break;
+            case 5:
+                day = "saturday";
+                break;
+        }
+
+        return day;
+    }
+
     public static String getTextDayOfWeek(int dayOfWeek){
         String day = "Понедельник";
         switch (dayOfWeek){

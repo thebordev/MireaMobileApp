@@ -1,6 +1,7 @@
 package com.example.mireaapp.Frgaments.Schedule;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import com.example.mireaapp.R;
+import com.example.mireaapp.Util.CalendarManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -60,18 +63,27 @@ public class SchedulePageAdapter extends RecyclerView.Adapter<SchedulePageAdapte
 
     private void initializeScheduleData(View currentView, int week, int dayOfWeek, String group, Context activity) {
         this.scheduleItems = new ArrayList<ScheduleItem>();
-
+        week = week - 1;
+        Log.d("myTag", String.valueOf(week));
         List<Schedule> schedule = ScheduleDatabase.getInstance(activity).scheduleDao().getScheduleByGroup(group);
+        String dayOfWeekText = CalendarManager.getEnTextDayOfWeek(dayOfWeek);
         if (schedule.size() > 0){
             try {
                 JSONArray jArray = new JSONArray(schedule.get(0).getJsonData());
-
+                JSONArray jArrayOfWeek = jArray.getJSONObject(week).getJSONArray(dayOfWeekText);
                 for (int subjectIndex = 0; subjectIndex < 6; subjectIndex++){
-                    String subject = jArray.getJSONArray(week).getJSONObject(dayOfWeek).getJSONArray("subject").getString(subjectIndex);
-                    String cab = jArray.getJSONArray(week).getJSONObject(dayOfWeek).getJSONArray("cab").getString(subjectIndex);
-                    String type = jArray.getJSONArray(week).getJSONObject(dayOfWeek).getJSONArray("type").getString(subjectIndex);
-                    String teacher = jArray.getJSONArray(week).getJSONObject(dayOfWeek).getJSONArray("teacher").getString(subjectIndex);
-                    scheduleItems.add(new ScheduleItem(subject, cab, type, ScheduleItem.getTimeStart(subjectIndex), ScheduleItem.getTimeEnd(subjectIndex), teacher));
+                    JSONObject jLesson = jArrayOfWeek.getJSONObject(subjectIndex);
+                    if(!jLesson.isNull("lesson")){
+                        jLesson = jLesson.getJSONObject("lesson");
+                        String subject = jLesson.getString("name");
+                        String cab = jLesson.getString("classRoom");
+                        String type = jLesson.getString("type").replace("пр", "Практика").replace("лк", "Лекция").replace("лаб", "Лабораторная");
+                        String teacher = jLesson.getString("teacher");
+                        scheduleItems.add(new ScheduleItem(subject, cab, type, ScheduleItem.getTimeStart(subjectIndex), ScheduleItem.getTimeEnd(subjectIndex), teacher));
+                    }
+                    else{
+                        continue;
+                    }
                 }
 
                 rvAllScheduleItems = (RecyclerView) currentView.findViewById(R.id.rv_all_schedul_items);

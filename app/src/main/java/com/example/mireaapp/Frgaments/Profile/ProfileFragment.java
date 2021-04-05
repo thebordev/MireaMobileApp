@@ -270,8 +270,10 @@ public class ProfileFragment extends Fragment {
 
         scheduleSettingsDialog.show();
     }
+
     private void downloadScheduleData(String group){
-        Request request = new Request.Builder().url("https://mirea.ninja:500/schedule/all/" + group.toUpperCase()).build();
+        String url = "http://167.99.39.136:5000/api/schedule/" + group.toUpperCase() + "/all_weeks";
+        Request request = new Request.Builder().url(url).build();
 
         SharedPreferences preferences = this.getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE );
         SharedPreferences.Editor pEditor = preferences.edit();

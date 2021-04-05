@@ -6,6 +6,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @Entity(tableName = "schedules")
 public class Schedule implements Serializable {
@@ -24,6 +25,8 @@ public class Schedule implements Serializable {
 
     @ColumnInfo(name = "last_server_update")
     private long lastServerUpdate;
+
+    public static ArrayList<ScheduleItem> scheduleItems;
 
     public Schedule(String group, String jsonData, long lastUpdate, long lastServerUpdate){
         this.group = group;
