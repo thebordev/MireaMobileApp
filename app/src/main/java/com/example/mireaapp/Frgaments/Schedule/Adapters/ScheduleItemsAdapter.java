@@ -1,10 +1,9 @@
-package com.example.mireaapp.Frgaments.Schedule;
+package com.example.mireaapp.Frgaments.Schedule.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.AnimationDrawable;
-import android.graphics.drawable.GradientDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +15,11 @@ import android.widget.TextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mireaapp.Frgaments.Schedule.Models.ScheduleItem;
 import com.example.mireaapp.R;
 import com.facebook.shimmer.ShimmerFrameLayout;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdapter.ScheduleItemsViewHolder> {
 
@@ -58,7 +57,6 @@ public class ScheduleItemsAdapter extends RecyclerView.Adapter<ScheduleItemsAdap
     @Override
     public void onBindViewHolder(ScheduleItemsViewHolder holder, int position) {
         ScheduleItem scheduleItem = scheduleItemsList.get(position);
-
 
         if (isShimmer) {
             holder.shimmerFrameLayout.startShimmer();

@@ -1,5 +1,6 @@
 package com.example.mireaapp.Frgaments;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,60 +8,152 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.davemorrissey.labs.subscaleview.ImageSource;
+import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
 import com.example.mireaapp.R;
+import com.github.chrisbanes.photoview.PhotoView;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MapFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class MapFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public MapFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MapFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MapFragment newInstance(String param1, String param2) {
-        MapFragment fragment = new MapFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private LinearLayout btn0, btn1, btn2, btn3, btn4;
+    private SubsamplingScaleImageView floor_iamge;
+    private TextView txt0, txt1, txt2, txt3, txt4;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_map, container, false);
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
+
+        //image map
+        floor_iamge = view.findViewById(R.id.map_image);
+
+        //btn floor
+        btn0 = view.findViewById(R.id.btn_fl0);
+        btn1 = view.findViewById(R.id.btn_fl1);
+        btn2 = view.findViewById(R.id.btn_fl2);
+        btn3 = view.findViewById(R.id.btn_fl3);
+        btn4 = view.findViewById(R.id.btn_fl4);
+
+        //txt color
+        txt0 = view.findViewById(R.id.textFloor_0);
+        txt1 = view.findViewById(R.id.textFloor_1);
+        txt2 = view.findViewById(R.id.textFloor_2);
+        txt3 = view.findViewById(R.id.textFloor_3);
+        txt4 = view.findViewById(R.id.textFloor_4);
+
+        //setting map
+        showMap();
+
+        return view;
+    }
+
+    private void showMap(){
+        floor_iamge.setImage(ImageSource.resource(R.drawable.fl2));
+        btn2.setBackgroundResource(R.drawable.corners_bg_map);
+        txt2.setTextColor(getResources().getColor(R.color.floor_select));
+
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floor_iamge.setImage(ImageSource.resource(R.drawable.fl4));
+
+                btn0.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn1.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn2.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn3.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn4.setBackgroundResource(R.drawable.corners_bg_map);
+
+                txt0.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt1.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt2.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt3.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt4.setTextColor(getResources().getColor(R.color.floor_select));
+
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floor_iamge.setImage(ImageSource.resource(R.drawable.fl3));
+
+                btn0.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn1.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn2.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn3.setBackgroundResource(R.drawable.corners_bg_map);
+                btn4.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+
+                txt0.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt1.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt2.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt3.setTextColor(getResources().getColor(R.color.floor_select));
+                txt4.setTextColor(getResources().getColor(R.color.floor_unselect));
+
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floor_iamge.setImage(ImageSource.resource(R.drawable.fl2));
+
+                btn0.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn1.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn2.setBackgroundResource(R.drawable.corners_bg_map);
+                btn3.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn4.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+
+                txt0.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt1.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt2.setTextColor(getResources().getColor(R.color.floor_select));
+                txt3.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt4.setTextColor(getResources().getColor(R.color.floor_unselect));
+
+            }
+        });
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floor_iamge.setImage(ImageSource.resource(R.drawable.fl1));
+
+                btn0.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn1.setBackgroundResource(R.drawable.corners_bg_map);
+                btn2.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn3.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn4.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+
+                txt0.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt1.setTextColor(getResources().getColor(R.color.floor_select));
+                txt2.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt3.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt4.setTextColor(getResources().getColor(R.color.floor_unselect));
+            }
+        });
+        btn0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                floor_iamge.setImage(ImageSource.resource(R.drawable.fl0));
+
+                btn0.setBackgroundResource(R.drawable.corners_bg_map);
+                btn1.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn2.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn3.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+                btn4.setBackgroundResource(R.drawable.corners_bg_map_unselected);
+
+                txt0.setTextColor(getResources().getColor(R.color.floor_select));
+                txt1.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt2.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt3.setTextColor(getResources().getColor(R.color.floor_unselect));
+                txt4.setTextColor(getResources().getColor(R.color.floor_unselect));
+
+            }
+        });
+        
     }
 }

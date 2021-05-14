@@ -1,9 +1,11 @@
-package com.example.mireaapp.Frgaments.Schedule;
+package com.example.mireaapp.Frgaments.Schedule.Data;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import com.example.mireaapp.Frgaments.Schedule.Models.ScheduleItem;
 
 import java.io.Serializable;
 import java.util.ArrayList;

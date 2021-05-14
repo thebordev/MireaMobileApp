@@ -1,4 +1,4 @@
-package com.example.mireaapp.Util;
+package com.example.mireaapp.Utils;
 
 import android.widget.ImageView;
 

@@ -1,6 +1,7 @@
-package com.example.mireaapp.Frgaments.Schedule;
+package com.example.mireaapp.Frgaments.Schedule.Models;
 
 public class ScheduleItem {
+
     private String title;
     private String cabinet;
     private String type;

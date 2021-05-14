@@ -1,23 +1,19 @@
-package com.example.mireaapp.Frgaments.Schedule;
+package com.example.mireaapp.Frgaments.Schedule.Adapters;
 
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
+import com.example.mireaapp.Frgaments.Schedule.Models.ScheduleItem;
+import com.example.mireaapp.Frgaments.Schedule.Data.Schedule;
+import com.example.mireaapp.Frgaments.Schedule.Data.ScheduleDatabase;
 import com.example.mireaapp.R;
-import com.example.mireaapp.Util.CalendarManager;
+import com.example.mireaapp.Utils.CalendarManager;
 
 import org.json.JSONArray;
 import org.json.JSONException;

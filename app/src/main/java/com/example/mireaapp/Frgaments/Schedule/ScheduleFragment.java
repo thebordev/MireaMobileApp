@@ -24,8 +24,9 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.mireaapp.Frgaments.Schedule.Adapters.SchedulePageAdapter;
 import com.example.mireaapp.R;
-import com.example.mireaapp.Util.CalendarManager;
+import com.example.mireaapp.Utils.CalendarManager;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -96,7 +97,6 @@ public class ScheduleFragment extends Fragment {
             }
         });
     }
-
     private void setSelectedDayButton(int dayOfWeek){
         for (int i = 0; i < 6; i++) {
             if (i == dayOfWeek) {
@@ -125,7 +125,6 @@ public class ScheduleFragment extends Fragment {
             }
         }
     }
-
     private void initializeDayButtons(){
         dayButtons = new ArrayList<LinearLayout>();
 

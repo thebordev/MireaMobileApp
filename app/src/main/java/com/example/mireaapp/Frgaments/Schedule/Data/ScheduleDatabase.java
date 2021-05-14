@@ -1,4 +1,4 @@
-package com.example.mireaapp.Frgaments.Schedule;
+package com.example.mireaapp.Frgaments.Schedule.Data;
 
 import android.content.Context;
 

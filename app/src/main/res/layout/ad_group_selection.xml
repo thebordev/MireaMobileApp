@@ -1,99 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:id="@+id/layout_schedule_settings_container_ad"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/layout_schedule_settings_container_ad"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_gravity="center"
+    app:cardCornerRadius="@dimen/_10sdp"
+    android:layout_height="wrap_content"
     android:layout_margin="@dimen/_10sdp"
     android:background="@drawable/bg_dialog"
     android:backgroundTint="?attr/bg_table_shedule"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/selectGroup"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_5sdp"
+        android:text="Выберите группу"
+        android:fontFamily="@font/ubuntu_bold"
+        android:textColor="?attr/text_color"
+        android:gravity="center"
+        android:textSize="@dimen/_14sdp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/select_group_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/selectGroup"
+        />
 
     <LinearLayout
+        android:id="@+id/layoutSearch_notes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/bg_dialog"
+        android:backgroundTint="#1B9F9F9F"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/select_group_list"
+        >
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:contentDescription="Поиск заметок"
+            android:src="@drawable/ic_baseline_search_24"
+            app:tint="?attr/text_color" />
+
+        <EditText
+            android:id="@+id/inputSearch_notes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/_5sdp"
-                android:text="Выберите группу"
-                android:fontFamily="@font/ubuntu_bold"
-                android:textColor="?attr/text_color"
-                android:gravity="center"
-                android:textSize="@dimen/_14sdp"/>
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            tools:listitem="@layout/item_group"
-            android:layout_height="@dimen/_200sdp"/>
-
-        <LinearLayout
-            android:id="@+id/layoutSearch_notes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_5sdp"
-            android:background="@drawable/bg_dialog"
-            android:backgroundTint="#1B9F9F9F"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingStart="@dimen/_10sdp"
-            android:paddingEnd="@dimen/_10sdp"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
-                android:contentDescription="Поиск заметок"
-                android:src="@drawable/ic_baseline_search_24"
-                app:tint="?attr/text_color" />
-
-            <EditText
-                android:id="@+id/inputSearch_notes"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_35sdp"
-                android:layout_marginStart="@dimen/_12sdp"
-                android:background="@null"
-                android:fontFamily="@font/ubuntu"
-                android:hint="Поиск группы"
-                android:imeOptions="actionDone"
-                android:importantForAutofill="no"
-                android:includeFontPadding="false"
-                android:inputType="text"
-                android:textColor="@android:color/white"
-                android:textColorHint="?attr/text_color"
-                android:textSize="@dimen/_13sdp"
-                android:layout_marginLeft="@dimen/_12sdp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Применить"
-                android:textSize="@dimen/_13sdp"
-                android:fontFamily="@font/ubuntu_medium"
-                android:textColor="#FDF49900"
-                android:gravity="center"
-                android:paddingBottom="@dimen/_10sdp"
-                android:padding="@dimen/_10sdp"/>
-        </LinearLayout>
-
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_12sdp"
+            android:background="@null"
+            android:fontFamily="@font/ubuntu"
+            android:hint="Поиск группы"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:includeFontPadding="false"
+            android:inputType="text"
+            android:textColor="@android:color/white"
+            android:textColorHint="?attr/text_color"
+            android:textSize="@dimen/_13sdp"
+            android:layout_marginLeft="@dimen/_12sdp" />
     </LinearLayout>
-
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Добавить"
+        android:textSize="@dimen/_13sdp"
+        android:fontFamily="@font/ubuntu_medium"
+        android:textColor="#FDF49900"
+        android:gravity="center"
+        android:paddingBottom="@dimen/_10sdp"
+        android:padding="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@+id/layoutSearch_notes"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

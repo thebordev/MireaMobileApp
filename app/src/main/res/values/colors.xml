@@ -7,6 +7,9 @@
     <color name="icon_false">#cbcbcb</color>
     <color name="icon_true">#0881ed</color>
 
+    <color name="floor_select">#fff</color>
+    <color name="floor_unselect">#aaa</color>
+
     <!--    news image background colors -->
     <color name="purple">#905EE8</color>
     <color name="red">#F96335</color>
